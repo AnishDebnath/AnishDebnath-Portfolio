@@ -15,7 +15,7 @@ export const JournalListPage: React.FC<JournalListPageProps> = ({ onNavigate }) 
   return (
     <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] pt-6 sm:pt-10 pb-20 select-none">
       <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
-        
+
         {/* Section Header */}
         <SectionHeader
           title="CASE STUDY"

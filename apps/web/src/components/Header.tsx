@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ activeRoute, onNavigate }) => {
   const renderNavLinks = () => (
     <nav className="flex items-center gap-2 sm:gap-3">
       {navItems.map((item, index) => {
-        const isActive = activeRoute === item.route || 
+        const isActive = activeRoute === item.route ||
           (item.route === 'case-study' && activeRoute === 'case-study-detail') ||
           (item.route === 'journal' && activeRoute === 'journal-detail');
         return (
@@ -50,11 +50,10 @@ export const Header: React.FC<HeaderProps> = ({ activeRoute, onNavigate }) => {
             {index > 0 && <span className="text-neutral-900 text-xs font-black select-none px-0.5">•</span>}
             <button
               onClick={() => handleNavClick(item.route)}
-              className={`text-sm sm:text-[15px] font-sans font-semibold transition-colors ${
-                isActive
-                  ? 'text-[#f2512d]'
-                  : 'text-[#0d130d] hover:text-[#f2512d]'
-              }`}
+              className={`text-sm sm:text-[15px] font-sans font-semibold transition-colors ${isActive
+                ? 'text-[#f2512d]'
+                : 'text-[#0d130d] hover:text-[#f2512d]'
+                }`}
             >
               {item.label}
             </button>
@@ -102,9 +101,8 @@ export const Header: React.FC<HeaderProps> = ({ activeRoute, onNavigate }) => {
   const renderLetsTalkButton = (isCompact = false) => (
     <button
       onClick={() => handleNavClick('contact')}
-      className={`inline-flex items-center gap-2 ${
-        isCompact ? 'px-4 py-2 text-xs sm:text-sm' : 'px-5 py-2.5 text-sm sm:text-[15px]'
-      } rounded-xl bg-[#f2512d] hover:bg-[#d03a18] text-white font-sans font-semibold tracking-wide transition-all shadow-sm active:scale-95 shrink-0`}
+      className={`inline-flex items-center gap-2 ${isCompact ? 'px-4 py-2 text-xs sm:text-sm' : 'px-5 py-2.5 text-sm sm:text-[15px]'
+        } rounded-xl bg-[#f2512d] hover:bg-[#d03a18] text-white font-sans font-semibold tracking-wide transition-all shadow-sm active:scale-95 shrink-0`}
     >
       <MessageSquare className="w-4 h-4 text-white fill-white/20" />
       <span>Let's Talk</span>
@@ -116,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({ activeRoute, onNavigate }) => {
       {/* 1. TOP MAIN NAVBAR (Fixed at top position of page) */}
       <header className="relative w-full z-40 bg-[#f5f5f5] py-3.5 border-b border-neutral-200/60">
         <div className="max-w-[1120px] mx-auto px-4 sm:px-6 flex items-center justify-between">
-          
+
           {/* Left: Avatar Doodle Box + Available Now Indicator */}
           {renderAvatarAndStatus()}
 
@@ -152,9 +150,8 @@ export const Header: React.FC<HeaderProps> = ({ activeRoute, onNavigate }) => {
                   <button
                     key={item.route}
                     onClick={() => handleNavClick(item.route)}
-                    className={`text-left py-2 text-lg font-display tracking-wider uppercase border-b border-neutral-800/80 ${
-                      isActive ? 'text-[#f2512d]' : 'text-neutral-300 hover:text-white'
-                    }`}
+                    className={`text-left py-2 text-lg font-display tracking-wider uppercase border-b border-neutral-800/80 ${isActive ? 'text-[#f2512d]' : 'text-neutral-300 hover:text-white'
+                      }`}
                   >
                     {item.label}
                   </button>

@@ -13,7 +13,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onNavigate, className = ''
       <div className="max-w-[1085px] mx-auto px-4 sm:px-6 relative">
         {/* MAIN CTA CONTAINER CARD */}
         <div className="relative rounded-[32px] sm:rounded-[44px] overflow-hidden border border-neutral-300/90 bg-[#f2efe6] bg-hero-grid p-6 sm:p-10 lg:p-12 shadow-xs">
-          
+
           {/* Subtle Corner Accents / Crosshairs */}
           <div className="absolute top-5 left-5 text-neutral-400/60 font-mono text-xs select-none pointer-events-none">+</div>
           <div className="absolute top-5 right-5 text-neutral-400/60 font-mono text-xs select-none pointer-events-none">+</div>
@@ -21,10 +21,10 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onNavigate, className = ''
           <div className="absolute bottom-5 right-5 text-neutral-400/60 font-mono text-xs select-none pointer-events-none">+</div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-            
+
             {/* LEFT SIDE CARDS - ASYMMETRIC, RANDOMLY SCATTERED LAYOUT */}
             <div className="lg:col-span-3 flex flex-col gap-6 order-2 lg:order-1 relative">
-              
+
               {/* Card 1: High Top-Left, sneaking over the left edge (-8deg rotation, shifted up-left) */}
               <div className="p-4 sm:p-4.5 rounded-2xl bg-white/95 backdrop-blur-md border border-neutral-300/90 shadow-lg transform lg:-rotate-8 lg:-translate-x-6 lg:-translate-y-4 hover:rotate-0 hover:translate-x-0 hover:translate-y-0 hover:scale-105 transition-all duration-300 cursor-pointer group hover:z-30 hover:shadow-xl hover:border-neutral-400">
                 <div className="flex items-center gap-2">
@@ -36,7 +36,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onNavigate, className = ''
                     Accepting Projects
                   </span>
                 </div>
-                
+
                 <div className="flex items-center gap-3 pt-2.5 mt-2 border-t border-neutral-200/80">
                   <div className="w-8 h-8 rounded-xl bg-[#0d130d] text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <Clock className="w-4 h-4 text-[#22c55e]" />
@@ -83,7 +83,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onNavigate, className = ''
 
             {/* RIGHT SIDE CARDS - ASYMMETRIC, RANDOMLY SCATTERED LAYOUT */}
             <div className="lg:col-span-3 flex flex-col gap-6 order-3 lg:order-3 relative">
-              
+
               {/* Card 3: Shifted right & slightly down (+7deg rotation) */}
               <div className="p-4 sm:p-4.5 rounded-2xl bg-white/95 backdrop-blur-md border border-neutral-300/90 shadow-lg transform lg:rotate-7 lg:translate-x-5 lg:-translate-y-2 hover:rotate-0 hover:translate-x-0 hover:translate-y-0 hover:scale-105 transition-all duration-300 cursor-pointer group hover:z-30 hover:shadow-xl hover:border-neutral-400">
                 <div className="flex items-center gap-2 text-[#f2512d]">

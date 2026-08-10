@@ -26,10 +26,10 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#f2512d]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1085px] mx-auto px-4 sm:px-6 relative z-10">
-        
+
         {/* Top Header Row */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-2">
-          
+
           {/* Left: Avatar Profile Image + Name & Role + Social Icons */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             {/* Avatar & Profile Info */}
@@ -97,54 +97,48 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
           <nav className="flex flex-wrap items-center gap-x-2.5 sm:gap-x-3 gap-y-2 text-sm sm:text-base font-semibold text-neutral-300">
             <button
               onClick={() => onNavigate('home')}
-              className={`transition-colors cursor-pointer ${
-                isHomeActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
-              }`}
+              className={`transition-colors cursor-pointer ${isHomeActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
+                }`}
             >
               Home
             </button>
             <span className="text-neutral-600 text-xs font-black select-none">•</span>
             <button
               onClick={() => onNavigate('about')}
-              className={`transition-colors cursor-pointer ${
-                isAboutActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
-              }`}
+              className={`transition-colors cursor-pointer ${isAboutActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
+                }`}
             >
               About
             </button>
             <span className="text-neutral-600 text-xs font-black select-none">•</span>
             <button
               onClick={() => onNavigate('resume')}
-              className={`transition-colors cursor-pointer ${
-                isResumeActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
-              }`}
+              className={`transition-colors cursor-pointer ${isResumeActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
+                }`}
             >
               Resume
             </button>
             <span className="text-neutral-600 text-xs font-black select-none">•</span>
             <button
               onClick={() => onNavigate('case-study')}
-              className={`transition-colors cursor-pointer ${
-                isCaseStudyActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
-              }`}
+              className={`transition-colors cursor-pointer ${isCaseStudyActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
+                }`}
             >
               Portfolio
             </button>
             <span className="text-neutral-600 text-xs font-black select-none">•</span>
             <button
               onClick={() => onNavigate('journal')}
-              className={`transition-colors cursor-pointer ${
-                isJournalActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
-              }`}
+              className={`transition-colors cursor-pointer ${isJournalActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
+                }`}
             >
               Case Study
             </button>
             <span className="text-neutral-600 text-xs font-black select-none">•</span>
             <button
               onClick={() => onNavigate('contact')}
-              className={`transition-colors cursor-pointer ${
-                isContactActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
-              }`}
+              className={`transition-colors cursor-pointer ${isContactActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
+                }`}
             >
               Contact
             </button>
@@ -157,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
 
         {/* Bottom Row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-0.5 text-xs text-neutral-400 font-sans">
-          
+
           {/* Left: Copyright */}
           <p className="text-neutral-400">
             © {new Date().getFullYear()} David Antony. All Rights Reserved.
@@ -167,27 +161,24 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
           <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-2 text-xs text-neutral-400 font-medium">
             <button
               onClick={() => onNavigate('privacy-policy')}
-              className={`transition-colors cursor-pointer ${
-                isPrivacyActive ? 'text-[#f2512d] font-bold' : 'hover:text-white'
-              }`}
+              className={`transition-colors cursor-pointer ${isPrivacyActive ? 'text-[#f2512d] font-bold' : 'hover:text-white'
+                }`}
             >
               Privacy Policy
             </button>
             <span className="text-neutral-700 text-xs">•</span>
             <button
               onClick={() => onNavigate('terms-of-service')}
-              className={`transition-colors cursor-pointer ${
-                isTermsActive ? 'text-[#f2512d] font-bold' : 'hover:text-white'
-              }`}
+              className={`transition-colors cursor-pointer ${isTermsActive ? 'text-[#f2512d] font-bold' : 'hover:text-white'
+                }`}
             >
               Terms of Service
             </button>
             <span className="text-neutral-700 text-xs">•</span>
             <button
               onClick={() => onNavigate('404')}
-              className={`transition-colors cursor-pointer ${
-                isNotFoundActive ? 'text-[#f2512d] font-bold' : 'hover:text-white'
-              }`}
+              className={`transition-colors cursor-pointer ${isNotFoundActive ? 'text-[#f2512d] font-bold' : 'hover:text-white'
+                }`}
             >
               404 Page
             </button>

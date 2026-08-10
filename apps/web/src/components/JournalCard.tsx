@@ -29,35 +29,31 @@ export const JournalCard: React.FC<JournalCardProps> = ({ article, onNavigate, d
       </div>
 
       {/* 2. Bottom Info Container - Glassmorphism style with backdrop blur */}
-      <div className={`rounded-2xl p-4 sm:p-4.5 flex flex-col justify-between backdrop-blur-md border transition-all duration-300 ${
-        darkTheme 
-          ? 'bg-neutral-900/60 border-neutral-800/80 text-white group-hover:border-[#f2512d]/60 shadow-sm' 
-          : 'bg-white/60 border-neutral-200/80 text-[#0d130d] group-hover:border-[#f2512d]/50 shadow-xs'
-      }`}>
-        
+      <div className={`rounded-2xl p-4 sm:p-4.5 flex flex-col justify-between backdrop-blur-md border transition-all duration-300 ${darkTheme
+        ? 'bg-neutral-900/60 border-neutral-800/80 text-white group-hover:border-[#f2512d]/60 shadow-sm'
+        : 'bg-white/60 border-neutral-200/80 text-[#0d130d] group-hover:border-[#f2512d]/50 shadow-xs'
+        }`}>
+
         {/* Top Meta Row */}
         <div className="flex items-center justify-between gap-2.5 mb-2">
           {/* Category Tag Pill */}
-          <span className={`px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider ${
-            darkTheme
-              ? 'bg-neutral-800/80 text-neutral-300 border border-neutral-700/80'
-              : 'bg-white text-[#0d130d] border border-neutral-200/90 shadow-2xs'
-          }`}>
+          <span className={`px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider ${darkTheme
+            ? 'bg-neutral-800/80 text-neutral-300 border border-neutral-700/80'
+            : 'bg-white text-[#0d130d] border border-neutral-200/90 shadow-2xs'
+            }`}>
             {article.category || 'Web Design'}
           </span>
 
           {/* Date */}
-          <span className={`text-[11px] sm:text-xs font-mono font-medium ${
-            darkTheme ? 'text-neutral-400' : 'text-neutral-500'
-          }`}>
+          <span className={`text-[11px] sm:text-xs font-mono font-medium ${darkTheme ? 'text-neutral-400' : 'text-neutral-500'
+            }`}>
             {formattedDate}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className={`font-sans font-bold text-base sm:text-lg leading-snug tracking-tight transition-colors duration-300 group-hover:text-[#f2512d] ${
-          darkTheme ? 'text-white' : 'text-[#0d130d]'
-        }`}>
+        <h3 className={`font-sans font-bold text-base sm:text-lg leading-snug tracking-tight transition-colors duration-300 group-hover:text-[#f2512d] ${darkTheme ? 'text-white' : 'text-[#0d130d]'
+          }`}>
           {article.title}
         </h3>
 

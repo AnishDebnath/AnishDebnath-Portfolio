@@ -66,13 +66,13 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ project, onNavigat
   };
 
   return (
-    <div 
+    <div
       onClick={() => onNavigate('case-study-detail', project.id)}
       className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 items-stretch group cursor-pointer"
     >
       {/* Info Card (Separate card with all 4 corners rounded) */}
       <div className={`lg:col-span-4 bg-[#f5f2eb] text-[#0d130d] rounded-[24px] sm:rounded-[28px] p-5 sm:p-6 flex flex-col justify-between border border-neutral-300/80 shadow-xs transition-all duration-300 group-hover:border-[#f2512d]/50 group-hover:shadow-md ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
-        
+
         <div>
           {/* Top Square Icon */}
           <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl ${iconBgClass} flex items-center justify-center mb-4 sm:mb-5 shadow-2xs group-hover:scale-105 transition-transform duration-300`}>
@@ -92,7 +92,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ project, onNavigat
 
         {/* Metadata & Compact Button */}
         <div className="mt-auto pt-3.5 border-t border-neutral-300/60 space-y-2.5">
-          
+
           {/* Client Row */}
           <div className="flex items-center justify-between text-xs font-sans">
             <span className="text-neutral-500 font-medium">Client</span>
@@ -106,7 +106,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ project, onNavigat
           </div>
 
           {/* Compact Button */}
-          <DarkButton 
+          <DarkButton
             onClick={(e) => {
               e.stopPropagation();
               onNavigate('case-study-detail', project.id);

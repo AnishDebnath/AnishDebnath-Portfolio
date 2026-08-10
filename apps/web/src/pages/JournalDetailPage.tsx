@@ -21,7 +21,7 @@ export const JournalDetailPage: React.FC<JournalDetailPageProps> = ({ articleId,
   return (
     <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] py-12 sm:py-20 select-none">
       <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
-        
+
         {/* Main Title Section with top & bottom dashed lines and background grid lines */}
         <div className="relative py-10 sm:py-14 border-y border-dashed border-neutral-300 mb-8 overflow-hidden">
           {/* Horizontal dashed grid lines running behind title */}
@@ -64,7 +64,7 @@ export const JournalDetailPage: React.FC<JournalDetailPageProps> = ({ articleId,
 
         {/* Article Body Paragraphs & Sections */}
         <div className="max-w-3xl mx-auto space-y-10 text-neutral-800 font-sans text-base sm:text-lg leading-relaxed mb-20">
-          
+
           <p className="text-neutral-700 leading-relaxed">
             In today's digital landscape, a visually appealing website is no longer enough. Businesses need to focus on conversion-driven design—crafting user experiences that guide visitors seamlessly toward desired actions. Whether it's signing up for a newsletter, purchasing a product, or exploring a service, the goal is to transform casual visitors into engaged, loyal users.
           </p>

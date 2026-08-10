@@ -12,7 +12,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigate }) => {
   return (
     <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] font-sans selection:bg-[#f2512d] selection:text-white pt-6 sm:pt-10 pb-20 select-none">
       <div className="max-w-[1085px] mx-auto px-4 sm:px-6 text-center">
-        
+
         {/* Top 404 Section with dashed grid border lines & red horizontal grid background */}
         <div className="py-6 sm:py-10 my-4 sm:my-6 border-t border-b border-dashed border-neutral-300/80 bg-header-grid flex items-center justify-center">
           <div className="flex items-center justify-center gap-1 sm:gap-1.5 text-[#f2512d] font-display font-black text-6xl sm:text-7xl lg:text-8xl leading-none select-none tracking-tight">

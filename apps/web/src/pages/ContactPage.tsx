@@ -30,7 +30,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   return (
     <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] pt-6 sm:pt-10 pb-20 select-none">
       <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
-        
+
         {/* Section Header */}
         <SectionHeader
           title="CONTACT"
@@ -39,7 +39,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
         {/* 2-Column Contact Card Section */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 mb-20 sm:mb-28 max-w-[980px] mx-auto">
-          
+
           {/* Left Column: Dark Creative Banner with full background image */}
           <div className="md:col-span-5 bg-[#060913] text-white rounded-[28px] p-8 sm:p-10 flex flex-col justify-between overflow-hidden min-h-[460px] shadow-sm relative">
             {/* Background image covering whole div */}
@@ -48,7 +48,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               alt="Creative hand artwork"
               className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale contrast-125"
             />
-            
+
             {/* Background gradient & glow overlays matching footer theme */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#060913]/80 via-[#060913]/60 to-[#060913]/90 pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(242,81,45,0.2),rgba(255,255,255,0))] pointer-events-none" />

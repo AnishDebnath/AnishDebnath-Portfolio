@@ -13,7 +13,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onNaviga
   return (
     <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] font-sans selection:bg-[#f2512d] selection:text-white pt-6 sm:pt-10 pb-20 select-none">
       <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
-        
+
         {/* Standard Section Header without sub-heading */}
         <SectionHeader
           title="TERMS OF SERVICE"
@@ -22,7 +22,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onNaviga
 
         {/* Content Container */}
         <div className="max-w-[760px] mx-auto space-y-8 sm:space-y-10 text-[#0d130d]">
-          
+
           <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed">
             Welcome to David Antony's Portfolio Website (“we,” “our,” or “us”). By accessing or using this website, you agree to comply with and be bound by the following Terms of Service. Please read them carefully before using this site.
           </p>

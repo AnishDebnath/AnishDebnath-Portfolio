@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { PageRoute } from '../types';
 import { SectionHeader } from '../components/SectionHeader';
-import { 
-  Download, 
-  ExternalLink, 
-  FileText, 
-  X, 
+import {
+  Download,
+  ExternalLink,
+  FileText,
+  X,
   CheckCircle2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -53,7 +53,7 @@ Node.js, TypeScript, Express.js, React, Next.js, PostgreSQL, MongoDB, Docker, AW
 
   return (
     <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] font-sans selection:bg-[#f2512d] selection:text-white">
-      
+
       {/* 1. TOP SECTION HEADER */}
       <div className="pt-8 sm:pt-12 max-w-[1085px] mx-auto px-4 sm:px-6">
         <SectionHeader
@@ -66,13 +66,13 @@ Node.js, TypeScript, Express.js, React, Next.js, PostgreSQL, MongoDB, Docker, AW
       {/* 2. MAIN RESUME SHOWCASE SECTION (MATCHING SITE LIGHT THEME WITH SCREENSHOT LAYOUT) */}
       <section className="py-10 sm:py-16 bg-[#f5f5f5] text-[#0d130d]">
         <div className="max-w-[1180px] mx-auto px-4 sm:px-6">
-          
+
           {/* Main 2-Column Workspace */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-            
+
             {/* LEFT COLUMN: Bio, Meta Specs, Download File Card & Action Buttons (5 cols) */}
             <div className="lg:col-span-5 bg-white border border-neutral-200/90 rounded-3xl sm:rounded-[32px] p-6 sm:p-8 shadow-sm space-y-6">
-              
+
               <div className="space-y-6">
                 {/* Heading */}
                 <div>
@@ -163,7 +163,7 @@ Node.js, TypeScript, Express.js, React, Next.js, PostgreSQL, MongoDB, Docker, AW
 
             {/* RIGHT COLUMN: Mac-style Window Frame with Live Paper CV Preview (7 cols) - Matching Height */}
             <div className="lg:col-span-7 bg-white border border-neutral-200/90 rounded-3xl sm:rounded-[32px] p-3 sm:p-5 lg:p-6 shadow-sm relative flex flex-col h-full min-h-[520px]">
-              
+
               {/* Window Controls Top Bar */}
               <div className="relative flex items-center justify-center pb-3.5 px-2 border-b border-neutral-200/80 mb-3 sm:mb-4">
                 <div className="absolute left-2 flex items-center gap-2">
@@ -179,7 +179,7 @@ Node.js, TypeScript, Express.js, React, Next.js, PostgreSQL, MongoDB, Docker, AW
 
               {/* WHITE RESUME PAPER CANVAS */}
               <div className="bg-[#fafafa] text-neutral-900 border border-neutral-200/80 rounded-2xl p-6 sm:p-10 lg:p-11 shadow-2xs font-sans flex-1 overflow-y-auto custom-scrollbar select-text text-left max-h-[640px] lg:max-h-[680px]">
-                
+
                 {/* Header */}
                 <div className="text-center pb-4 border-b-2 border-neutral-900">
                   <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 uppercase">

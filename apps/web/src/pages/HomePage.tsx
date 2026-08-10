@@ -75,7 +75,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-[#f5f5f5] text-[#0d130d]">
-      
+
       {/* 1. HERO SECTION */}
       <HeroSection onNavigate={onNavigate} />
 
@@ -85,14 +85,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* 2. STATS SECTION */}
       <section className="py-16 sm:py-24 bg-[#f5f5f5]">
         <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
-          
+
           <SectionHeader
             title="STATS"
             subtitle="A quick look at the measurable impact behind Antony's design journey."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            
+
             {/* Stat Card 1: Successful Projects */}
             <div className="bg-[#f5f2eb] rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-300 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-2xs">
               <div className="relative z-10 pointer-events-none">
@@ -107,7 +107,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {/* Tilted Diagonal Pill Pile with Alternating Marquee - Edge to Edge 3 Rows */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
                 <div className="absolute -bottom-10 -left-12 w-[170%] transform -rotate-[20deg] origin-bottom-left flex flex-col gap-3">
-                  
+
                   {/* Row 1: Left Marquee */}
                   <div className="flex overflow-hidden w-full">
                     <div className="animate-marquee-left flex items-center gap-3">
@@ -197,7 +197,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
               {/* Chat Bubble Widget */}
               <div className="mt-8 pt-2">
-                
+
                 {/* Message 1 Row */}
                 <div className="flex items-center gap-3 mb-2.5">
                   {/* Line art guy avatar in white circle with red border */}
@@ -250,21 +250,21 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               {/* Speedometer Dial Gauge Graphic */}
               <div className="relative mt-2 -mb-8 flex items-end justify-center h-48 overflow-hidden select-none">
                 <svg viewBox="0 0 240 135" className="w-60 sm:w-64 h-auto overflow-visible">
-                  
+
                   {/* Outer Hatch Tick Pattern Arc */}
-                  <path 
-                    d="M 20 125 A 100 100 0 0 1 220 125" 
-                    fill="none" 
-                    stroke="#d4cebe" 
-                    strokeWidth="16" 
+                  <path
+                    d="M 20 125 A 100 100 0 0 1 220 125"
+                    fill="none"
+                    stroke="#d4cebe"
+                    strokeWidth="16"
                     strokeDasharray="1.5 3.5"
                   />
-                  
+
                   {/* Inner Semicircle Arch Line */}
-                  <path 
-                    d="M 38 125 A 82 82 0 0 1 202 125" 
-                    fill="none" 
-                    stroke="#ded8ca" 
+                  <path
+                    d="M 38 125 A 82 82 0 0 1 202 125"
+                    fill="none"
+                    stroke="#ded8ca"
                     strokeWidth="1.5"
                   />
 
@@ -272,17 +272,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <text x="50" y="115" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">03</text>
                   <text x="64" y="78" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">04</text>
                   <text x="90" y="48" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">05</text>
-                  
+
                   {/* Active highlighted 06 in orange */}
                   <text x="120" y="32" fontSize="12" fontWeight="bold" fontFamily="sans-serif" fill="#e74723" textAnchor="middle">06</text>
-                  
+
                   <text x="150" y="48" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">07</text>
                   <text x="176" y="78" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">08</text>
                   <text x="190" y="115" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">09</text>
 
                   {/* Red Pointer Arrow line pointing to 06 */}
                   <line x1="120" y1="125" x2="120" y2="42" stroke="#e74723" strokeWidth="2.5" strokeLinecap="round" />
-                  
+
                   {/* Pointer Arrowhead */}
                   <polygon points="120,36 116,44 124,44" fill="#e74723" />
 
@@ -328,18 +328,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
           <div className="space-y-12 sm:space-y-20 mt-8 sm:mt-12 relative pb-16 sm:pb-24">
             {CASE_STUDIES.map((project, index) => (
-              <div 
+              <div
                 key={project.id}
                 className="sticky"
-                style={{ 
+                style={{
                   top: `calc(12vh + ${index * 92}px)`,
-                  zIndex: index + 1 
+                  zIndex: index + 1
                 }}
               >
-                <CaseStudyCard 
-                  project={project} 
-                  index={index} 
-                  onNavigate={onNavigate} 
+                <CaseStudyCard
+                  project={project}
+                  index={index}
+                  onNavigate={onNavigate}
                 />
               </div>
             ))}
@@ -362,7 +362,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
 
         <div className="max-w-[1085px] mx-auto px-4 sm:px-6 relative z-10">
-          
+
           <SectionHeader
             title="CASE STUDY"
             subtitle="Thoughts, lessons, and behind-the-scenes insights from my design journey."

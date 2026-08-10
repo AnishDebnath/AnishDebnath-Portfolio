@@ -144,8 +144,8 @@ const ExperienceImageGrid: React.FC<{ images: ExperienceImage[] }> = ({ images }
   return (
     <div className="mt-5 max-w-xl grid grid-cols-1 sm:grid-cols-3 gap-3">
       {images.map((img, i) => (
-        <div 
-          key={i} 
+        <div
+          key={i}
           className="group relative rounded-xl overflow-hidden border border-neutral-800/90 bg-[#121812] aspect-[4/3] shadow-xs"
         >
           <img
@@ -173,7 +173,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
 
   return (
     <main className="bg-[#f5f5f5] text-[#0d130d] pt-8 sm:pt-12 pb-20">
-      
+
       {/* 1. ABOUT ANTONY SECTION HEADER */}
       <div className="max-w-[980px] mx-auto px-4 sm:px-6">
         <SectionHeader
@@ -181,7 +181,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           subtitle=""
           icon={
             <svg className="w-6 h-6 stroke-[2.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           }
         />
@@ -204,7 +204,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       {/* 3. STATS & BIO ROW */}
       <div className="max-w-[980px] mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start pb-20 sm:pb-28">
-          
+
           {/* Left: Stats Numbers */}
           <div className="md:col-span-4 space-y-8">
             <div>
@@ -257,14 +257,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         </div>
 
         <div className="max-w-[980px] mx-auto px-4 sm:px-6 relative z-10">
-          
+
           <SectionHeader
             title="EXPERIENCE"
             subtitle="Years of creating user-centered designs that make an impact."
             dark={true}
             icon={
               <svg className="w-6 h-6 stroke-[2.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             }
           />
@@ -272,11 +272,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           {/* Experience List */}
           <div className="space-y-12 sm:space-y-16 pb-20 border-b border-neutral-800">
             {EXPERIENCE_DATA.map((exp, index) => (
-              <div 
-                key={exp.id} 
-                className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${
-                  index < EXPERIENCE_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
-                }`}
+              <div
+                key={exp.id}
+                className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${index < EXPERIENCE_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
+                  }`}
               >
                 {/* Left: Role & Company */}
                 <div className="md:col-span-5">
@@ -309,7 +308,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
 
           {/* Currently & Quote Row */}
           <div className="pt-16 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
-            
+
             {/* Left Quote */}
             <div className="md:col-span-6 space-y-3">
               <span className="font-serif text-5xl sm:text-6xl text-neutral-600 block leading-none font-bold">

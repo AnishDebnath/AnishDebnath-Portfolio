@@ -31,13 +31,13 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
     'Created brand collateral such as stationery, social templates, signage, and digital ads to maintain a consistent visual presence.'
   ];
 
-  const solutionBullets = project.solutionBullets && project.solutionBullets.length > 0 
-    ? project.solutionBullets 
+  const solutionBullets = project.solutionBullets && project.solutionBullets.length > 0
+    ? project.solutionBullets
     : defaultBullets;
 
   return (
     <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] font-sans selection:bg-[#f2512d] selection:text-white pt-6 sm:pt-10 pb-20 select-none">
-      
+
       {/* 1. Header Section */}
       <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
         <SectionHeader
@@ -54,7 +54,7 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
         {/* Sub-header info block */}
         <div className="max-w-[980px] mx-auto mb-10 pt-2 px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
-            
+
             {/* Left: Logo & Description */}
             <div className="flex flex-col items-start gap-3 sm:gap-4 max-w-2xl">
               <div className="flex items-center gap-3 shrink-0 text-[#0d130d]">
@@ -95,7 +95,7 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
       <section className="py-10 sm:py-16">
         <div className="max-w-[980px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 items-start">
-            
+
             {/* Left Title with Red Badge */}
             <div className="md:col-span-4 flex items-center gap-4">
               <div className="w-10 h-10 rounded-2xl bg-[#f2512d] flex items-center justify-center text-white shrink-0 shadow-sm">
@@ -136,7 +136,7 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
       <section className="py-10 sm:py-16">
         <div className="max-w-[980px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 items-start">
-            
+
             {/* Left Title with Red Badge */}
             <div className="md:col-span-4 flex items-center gap-4">
               <div className="w-10 h-10 rounded-2xl bg-[#f2512d] flex items-center justify-center text-white shrink-0 shadow-sm">
@@ -175,7 +175,7 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
 
         {/* Content Container matching 980px max width */}
         <div className="max-w-[980px] mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-14">
-          
+
           {/* Section Header */}
           <SectionHeader
             title="RESULTS"
@@ -210,7 +210,7 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
       {project.galleryImages && project.galleryImages.length > 0 && (
         <section className="py-10 sm:py-16">
           <div className="max-w-[1085px] mx-auto px-4 sm:px-6 space-y-6">
-            
+
             {/* Top Large Gallery Image */}
             <div className="rounded-[28px] sm:rounded-[32px] overflow-hidden border border-neutral-300 aspect-[16/9] shadow-md bg-neutral-900">
               <img
@@ -248,7 +248,7 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
         </div>
 
         <div className="max-w-[980px] mx-auto px-4 sm:px-6 space-y-16 sm:space-y-20 relative z-10">
-          
+
           {/* Section Header */}
           <SectionHeader
             title="MORE PROJECT"

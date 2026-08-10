@@ -13,7 +13,7 @@ interface CaseStudyListPageProps {
 export const CaseStudyListPage: React.FC<CaseStudyListPageProps> = ({ onNavigate }) => {
   return (
     <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] font-sans selection:bg-[#f2512d] selection:text-white">
-      
+
       {/* 2. Main Dark Showcase Section */}
       <section className="relative bg-[#060913] text-white py-16 sm:py-24 border-t border-b border-neutral-800">
         {/* Background glow effects matching footer */}
@@ -23,7 +23,7 @@ export const CaseStudyListPage: React.FC<CaseStudyListPageProps> = ({ onNavigate
         </div>
 
         <div className="max-w-[1085px] mx-auto px-4 sm:px-6 relative z-10">
-          
+
           <SectionHeader
             title="PORTFOLIO"
             subtitle="Selected projects, design systems, and digital products."
@@ -40,10 +40,10 @@ export const CaseStudyListPage: React.FC<CaseStudyListPageProps> = ({ onNavigate
           <div className="space-y-12 sm:space-y-16 mt-8 sm:mt-12">
             {CASE_STUDIES.map((project, index) => (
               <div key={project.id}>
-                <CaseStudyCard 
-                  project={project} 
-                  index={index} 
-                  onNavigate={onNavigate} 
+                <CaseStudyCard
+                  project={project}
+                  index={index}
+                  onNavigate={onNavigate}
                 />
               </div>
             ))}
