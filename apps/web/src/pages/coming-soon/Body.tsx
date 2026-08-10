@@ -87,7 +87,7 @@ const Headline: React.FC = () => {
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.1, duration: 0.4 }}
-                        className="absolute -bottom-11 sm:-bottom-12 right-[-40px] sm:right-[-40px] font-script text-2xl sm:text-4xl text-[#f2512d] font-normal rotate-[-3deg] whitespace-nowrap drop-shadow-2xs"
+                        className="absolute -bottom-11 sm:-bottom-12 -right-10 font-script text-2xl sm:text-4xl text-[#f2512d] font-normal -rotate-3 whitespace-nowrap drop-shadow-2xs"
                     >
                         Portfolio
                     </motion.span>
@@ -113,14 +113,40 @@ const Subtitle: React.FC = () => {
 const Subscribe: React.FC = () => {
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [error, setError] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (email.trim()) {
+        const value = email.trim();
+        if (!value) return;
+
+        setSubmitting(true);
+        setError('');
+        try {
+            const res = await fetch('/api/email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: value, website: '' /* honeypot */ }),
+            });
+
+            const data = await res.json().catch(() => null);
+            if (!res.ok || !data || data.success !== true) {
+                throw new Error(
+                    data && typeof data.error === 'string'
+                        ? data.error
+                        : 'Mail service unavailable. Please try again.',
+                );
+            }
+
             setSubmitted(true);
             setTimeout(() => {
                 setEmail('');
-            }, 4000);
+            }, 5000);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -133,27 +159,34 @@ const Subscribe: React.FC = () => {
         >
             {submitted ? (
                 <div className="bg-white border border-emerald-300/80 rounded-2xl p-4 flex items-center justify-center gap-3 text-sm text-neutral-800 shadow-sm">
-                    {/* <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" /> */}
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
                     <span className="font-medium">Thank you! You've been added to my updates list.</span>
                 </div>
             ) : (
-                <form onSubmit={handleSubmit} className="flex items-center gap-2 bg-white p-1.5 sm:p-2 rounded-2xl border border-neutral-300/90 shadow-sm">
-                    <input
-                        type="email"
-                        required
-                        placeholder="Enter your email address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full min-w-0 flex-1 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-[#0d130d] bg-transparent outline-none placeholder:text-neutral-400 font-sans"
-                    />
-                    <button
-                        type="submit"
-                        className="px-4 sm:px-6 py-2.5 sm:py-3 bg-[#f2512d] hover:bg-[#e74723] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xl transition-colors shadow-sm cursor-pointer active:scale-[0.98] flex items-center justify-center gap-1.5 sm:gap-2 shrink-0"
-                    >
-                        <span>Join</span>
-                        <Send className="w-3.5 h-3.5" />
-                    </button>
-                </form>
+                <>
+                    <form onSubmit={handleSubmit} className="flex items-center gap-2 bg-white p-1.5 sm:p-2 rounded-2xl border border-neutral-300/90 shadow-sm">
+                        <input
+                            type="email"
+                            required
+                            placeholder="Enter your email address"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            disabled={submitting}
+                            className="w-full min-w-0 flex-1 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-[#0d130d] bg-transparent outline-none placeholder:text-neutral-400 font-sans"
+                        />
+                        <button
+                            type="submit"
+                            disabled={submitting}
+                            className="px-4 sm:px-6 py-2.5 sm:py-3 bg-[#f2512d] hover:bg-[#e74723] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xl transition-colors shadow-sm cursor-pointer active:scale-[0.98] flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+                        >
+                            <span>{submitting ? 'Joining…' : 'Join'}</span>
+                            <Send className="w-3.5 h-3.5" />
+                        </button>
+                    </form>
+                    {error && (
+                        <p className="mt-3 text-xs text-red-600 font-sans font-medium">{error}</p>
+                    )}
+                </>
             )}
         </motion.div>
     );

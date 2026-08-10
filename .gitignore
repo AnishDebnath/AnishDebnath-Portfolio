@@ -22,13 +22,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Environment files — commit only .env.example
+# Environment files — commit only .env.example (never a real key/email)
 .env
-.env.local
-.env.*.local
-.env.production
-.env.development
+.env.*
 !.env.example
+
+# esbuild server bundle (legacy `clean` target)
+server.js
 
 # Local agent skills / personal customizations
 .agents/
