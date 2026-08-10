@@ -3,7 +3,7 @@ import { PageRoute } from './types';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { AppleHelloIntro } from './components/AppleHelloIntro';
-import { ComingSoonPage } from './pages/ComingSoonPage';
+import { ComingSoonPage } from './pages/coming-soon';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ResumePage } from './pages/ResumePage';
@@ -80,16 +80,22 @@ export default function App() {
       {/* Apple-style Iconic Hello Splash Intro */}
       {showIntro && <AppleHelloIntro onComplete={handleIntroComplete} />}
 
-      {/* Top Header - sticky across standard views */}
-      {!isComingSoon && <Header activeRoute={currentRoute} onNavigate={handleNavigate} />}
+      {/* Site content mounts only AFTER intro finishes, so the page's initial
+          entrance animations play fresh instead of finishing behind the overlay */}
+      {!showIntro && (
+        <>
+          {/* Top Header - sticky across standard views */}
+          {!isComingSoon && <Header activeRoute={currentRoute} onNavigate={handleNavigate} />}
 
-      {/* Main Content Area */}
-      <main className="flex-grow">
-        {renderCurrentPage()}
-      </main>
+          {/* Main Content Area */}
+          <main className="flex-grow">
+            {renderCurrentPage()}
+          </main>
 
-      {/* Footer - render across standard views */}
-      {!isComingSoon && <Footer activeRoute={currentRoute} onNavigate={handleNavigate} />}
+          {/* Footer - render across standard views */}
+          {!isComingSoon && <Footer activeRoute={currentRoute} onNavigate={handleNavigate} />}
+        </>
+      )}
     </div>
   );
 }
