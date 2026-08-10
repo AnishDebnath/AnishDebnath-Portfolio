@@ -5,7 +5,7 @@ export const Navbar: React.FC = () => {
     return (
         <header className="w-full px-6 sm:px-12 py-5 flex items-center justify-between bg-[#f5f5f5]/90 backdrop-blur-md border-b border-neutral-300/80 z-20 sticky top-0 shadow-2xs">
             <div className="font-display font-normal text-2xl uppercase tracking-tight text-[#0d130d] flex items-center gap-0.5">
-                ANISH<span className="text-[#f2512d]">.</span>
+                Anish<span className="text-[#f2512d]">.</span>
             </div>
 
             <div className="flex items-center gap-3 sm:gap-4">

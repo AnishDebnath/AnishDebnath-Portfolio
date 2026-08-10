@@ -8,7 +8,7 @@ const Badge: React.FC = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-neutral-300/90 text-xs font-mono font-semibold uppercase tracking-wider text-[#0d130d] shadow-2xs mb-8"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white border border-neutral-300/90 text-xs font-mono font-semibold uppercase tracking-wider text-[#0d130d] shadow-2xs mb-8 whitespace-nowrap"
         >
             <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f2512d] opacity-75"></span>
@@ -133,7 +133,7 @@ const Subscribe: React.FC = () => {
         >
             {submitted ? (
                 <div className="bg-white border border-emerald-300/80 rounded-2xl p-4 flex items-center justify-center gap-3 text-sm text-neutral-800 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                    {/* <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" /> */}
                     <span className="font-medium">Thank you! You've been added to my updates list.</span>
                 </div>
             ) : (
