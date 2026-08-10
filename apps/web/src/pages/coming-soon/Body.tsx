@@ -121,6 +121,11 @@ const Subscribe: React.FC = () => {
         const value = email.trim();
         if (!value) return;
 
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
+            setError('Please enter a valid email address, e.g. name@example.com.');
+            return;
+        }
+
         setSubmitting(true);
         setError('');
         try {
@@ -168,6 +173,10 @@ const Subscribe: React.FC = () => {
                         <input
                             type="email"
                             required
+                            pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}"
+                            inputMode="email"
+                            autoComplete="email"
+                            title="Enter a valid email address, e.g. name@example.com"
                             placeholder="Enter your email address"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
