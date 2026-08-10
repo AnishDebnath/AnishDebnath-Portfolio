@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f5f5f5;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.6) 0px,
+      rgba(255, 255, 255, 0.6) 1px,
+      transparent 1px,
+      transparent 3.5px
+    );
+    color: #0d130d;
+  }
+}
+
+/* 45-degree diagonal pinstripe line pattern exclusively applied to light page & section main backgrounds */
+body,
+main,
+section,
+.bg-pinstripe-light,
+.bg-pinstripe-white,
+.min-h-screen {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.6) 0px,
+    rgba(255, 255, 255, 0.6) 1px,
+    transparent 1px,
+    transparent 3.5px
+  );
+}
+
+/* Ensure inner cards and divs inside sections do NOT inherit diagonal pattern unless explicitly specified */
+section div:not(.bg-pinstripe-light):not(.bg-hero-grid):not(.bg-grid-pattern):not(.bg-grid-pattern-dark):not(.bg-header-grid),
+main div:not(.bg-pinstripe-light):not(.bg-hero-grid):not(.bg-grid-pattern):not(.bg-grid-pattern-dark):not(.bg-header-grid) {
+  background-image: none;
+}
+
+.bg-pinstripe-dark {
+  background-color: #0d130d;
+  background-image: none !important;
+}
+
+/* Black/Dark background sections & footer stay clean solid dark without background pattern */
+section.bg-\[\#0d130d\],
+section.bg-\[\#060913\],
+section.bg-\[\#121812\],
+section.bg-\[\#1c241c\],
+div.bg-\[\#0d130d\],
+div.bg-\[\#060913\],
+main.bg-\[\#0d130d\],
+footer.bg-\[\#060913\],
+footer.bg-\[\#0d130d\],
+footer {
+  background-image: none !important;
+}
+
+.font-display {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.font-mono-tag {
+  font-family: 'Fragment Mono', monospace;
+}
+
+.border-text {
+  -webkit-text-stroke: 1.5px #e74723;
+  color: transparent;
+}
+
+.border-text-dark {
+  -webkit-text-stroke: 1.5px rgba(231, 71, 35, 0.4);
+  color: transparent;
+}
+
+/* Custom dashed border patterns */
+.border-dashed-fine {
+  border-style: dashed;
+  border-width: 1px;
+}
+
+/* Restored 90-degree box grid pattern utilities for cards and hero divs */
+.bg-hero-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(13, 19, 13, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 19, 13, 0.07) 1px, transparent 1px) !important;
+}
+
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(13, 19, 13, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 19, 13, 0.05) 1px, transparent 1px) !important;
+}
+
+.bg-grid-pattern-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px) !important;
+}
+
+.bg-header-grid {
+  background-size: 100% 28px;
+  background-image: linear-gradient(to bottom, rgba(242, 81, 45, 0.08) 1px, transparent 1px) !important;
+}
+
+.font-growth {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+}
+
+.font-script {
+  font-family: 'Caveat', 'Sacramento', 'Dancing Script', cursive;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 35s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 35s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Monochromatic animated pattern background for button (No color flash, pure line pattern drift) */
+@keyframes pattern-panning {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(80px, 40px);
+  }
+}
+
+@keyframes pattern-wave-drift {
+  0% {
+    transform: translate(-12px, -8px) scale(1);
+  }
+  50% {
+    transform: translate(12px, 8px) scale(1.08);
+  }
+  100% {
+    transform: translate(-12px, -8px) scale(1);
+  }
+}
+
+.animate-pattern-panning {
+  animation: pattern-panning 14s linear infinite;
+}
+
+.animate-pattern-wave {
+  animation: pattern-wave-drift 9s ease-in-out infinite;
+}
