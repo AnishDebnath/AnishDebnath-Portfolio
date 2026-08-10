@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageRoute } from '../types';
-import { Instagram, Linkedin, Twitter, Dribbble } from 'lucide-react';
+import { Instagram, Linkedin, Twitter, Github } from 'lucide-react';
 
 interface FooterProps {
   activeRoute?: PageRoute;
@@ -55,7 +55,7 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
             {/* Social Media Links */}
             <div className="flex items-center gap-2 sm:border-l sm:border-white/10 sm:pl-6">
               <a
-                href="https://twitter.com"
+                href="https://x.com/anishdebnath07"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/[0.06] hover:bg-[#f2512d] border border-white/10 hover:border-[#f2512d] flex items-center justify-center text-neutral-300 hover:text-white transition-all duration-300 shadow-xs hover:shadow-lg hover:shadow-[#f2512d]/25 group"
@@ -64,7 +64,7 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
                 <Twitter className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/anish-debnath"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/[0.06] hover:bg-[#f2512d] border border-white/10 hover:border-[#f2512d] flex items-center justify-center text-neutral-300 hover:text-white transition-all duration-300 shadow-xs hover:shadow-lg hover:shadow-[#f2512d]/25 group"
@@ -82,13 +82,13 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
                 <Instagram className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
               </a>
               <a
-                href="https://dribbble.com"
+                href="https://github.com/AnishDebnath"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/[0.06] hover:bg-[#f2512d] border border-white/10 hover:border-[#f2512d] flex items-center justify-center text-neutral-300 hover:text-white transition-all duration-300 shadow-xs hover:shadow-lg hover:shadow-[#f2512d]/25 group"
-                aria-label="Dribbble"
+                aria-label="GitHub"
               >
-                <Dribbble className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+                <Github className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
               </a>
             </div>
           </div>

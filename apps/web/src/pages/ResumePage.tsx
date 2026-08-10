@@ -193,9 +193,9 @@ Node.js, TypeScript, Express.js, React, Next.js, PostgreSQL, MongoDB, Docker, AW
                     <span>|</span>
                     <span>+8801628442950</span>
                     <span>|</span>
-                    <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:underline text-[#f2512d]">GitHub</a>
+                    <a href="https://github.com/AnishDebnath" target="_blank" rel="noreferrer" className="hover:underline text-[#f2512d]">GitHub</a>
                     <span>|</span>
-                    <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:underline text-[#f2512d]">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/anish-debnath" target="_blank" rel="noreferrer" className="hover:underline text-[#f2512d]">LinkedIn</a>
                     <span>|</span>
                     <a href="#" className="hover:underline text-[#f2512d]">Portfolio</a>
                   </div>

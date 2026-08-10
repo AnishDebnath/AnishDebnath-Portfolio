@@ -14,7 +14,7 @@ export const Navbar: React.FC = () => {
                 </span>
                 <div className="flex items-center gap-2">
                     <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/anish-debnath"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-white border border-neutral-300/80 flex items-center justify-center text-[#0d130d] hover:bg-[#f2512d] hover:text-white hover:border-[#f2512d] transition-all shadow-2xs"
@@ -23,7 +23,7 @@ export const Navbar: React.FC = () => {
                         <Linkedin className="w-4 h-4" />
                     </a>
                     <a
-                        href="https://twitter.com"
+                        href="https://x.com/anishdebnath07"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-white border border-neutral-300/80 flex items-center justify-center text-[#0d130d] hover:bg-[#f2512d] hover:text-white hover:border-[#f2512d] transition-all shadow-2xs"
@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
                         <Twitter className="w-4 h-4" />
                     </a>
                     <a
-                        href="https://github.com"
+                        href="https://github.com/AnishDebnath"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-8 h-8 rounded-full bg-white border border-neutral-300/80 flex items-center justify-center text-[#0d130d] hover:bg-[#f2512d] hover:text-white hover:border-[#f2512d] transition-all shadow-2xs"
