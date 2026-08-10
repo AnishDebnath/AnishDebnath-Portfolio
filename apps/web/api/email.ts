@@ -96,12 +96,17 @@ async function sendBrevoEmail(options: {
         throw new Error('Missing BREVO_API_KEY env var');
     }
 
+    const recipient: { email: string; name?: string } = { email: options.toEmail };
+    if (options.toName) {
+        recipient.name = options.toName;
+    }
+
     const body = {
         sender: {
             email: process.env.BREVO_FROM_EMAIL ?? '',
             name: OWNER_NAME,
         },
-        to: [{ email: options.toEmail, name: options.toName ?? '' }],
+        to: [recipient],
         subject: options.subject,
         textContent: options.textContent,
         htmlContent: options.htmlContent,
