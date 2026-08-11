@@ -2,9 +2,12 @@ import { config as loadEnv } from 'dotenv';
 import { fileURLToPath } from 'node:url';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 
-// Load .env from apps/web regardless of the process cwd. On Vercel no local
-// .env exists, so this is a silent no-op and Vercel env vars are used instead.
-loadEnv({ path: fileURLToPath(new URL('../.env', import.meta.url)) });
+// Load .env from apps/web regardless of the process cwd — local dev only.
+// On Vercel env vars are injected directly by the platform, and resolving a
+// local file path inside the serverless bundle would crash at cold start.
+if (process.env.NODE_ENV !== 'production') {
+    loadEnv({ path: fileURLToPath(new URL('../.env', import.meta.url)) });
+}
 
 /**
  * Vercel serverless function: POST /api/email
