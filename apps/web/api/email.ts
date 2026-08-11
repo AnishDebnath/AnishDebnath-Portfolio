@@ -32,7 +32,7 @@ interface JoinPayload {
 }
 
 // Per-instance sliding-window rate limit (best-effort on serverless).
-const RATE_LIMIT_MAX = 5; // submissions per IP per window
+const RATE_LIMIT_MAX = 10; // submissions per IP per window
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 const rateHits = new Map<string, number[]>();
 
