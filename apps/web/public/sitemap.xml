@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Phase 1: only genuinely finished, public/indexable pages belong here.
+  The Coming Soon landing page is the only finished public page right now.
+  Add future pages to the <urlset> when their content is finalized:
+    <url><loc>https://anishdebnath.site/about</loc></url>
+  Do not add placeholder or unfinished routes.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://anishdebnath.site/</loc>
+  </url>
+</urlset>

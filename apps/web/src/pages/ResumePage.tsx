@@ -26,7 +26,7 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onNavigate }) => {
     const file = new Blob([
       `ANISH DEBNATH - Full Stack Developer
 Email: anish.debnath@gmail.com | Phone: +8801628442950
-GitHub: github.com/anish-debnath | Portfolio: anishdebnath.dev
+GitHub: github.com/anish-debnath | Portfolio: anishdebnath.site
 
 PROFILE:
 Full Stack Developer with 2+ years of experience building scalable web apps using React, Next.js, Node.js, and TypeScript. Skilled in RESTful APIs, PostgreSQL, and cloud deployments (AWS). Delivered production apps with 95+ Lighthouse scores, with active open-source contributions on GitHub.

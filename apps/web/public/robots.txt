@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block nothing — all legitimate crawling is allowed.
+# CSS, JS and images stay crawlable (they are not blocked).
+
+Sitemap: https://anishdebnath.site/sitemap.xml
