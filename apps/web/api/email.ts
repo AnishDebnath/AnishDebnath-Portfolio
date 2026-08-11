@@ -1,5 +1,10 @@
-import 'dotenv/config';
+import { config as loadEnv } from 'dotenv';
+import { fileURLToPath } from 'node:url';
 import type { IncomingMessage, ServerResponse } from 'node:http';
+
+// Load .env from apps/web regardless of the process cwd. On Vercel no local
+// .env exists, so this is a silent no-op and Vercel env vars are used instead.
+loadEnv({ path: fileURLToPath(new URL('../.env', import.meta.url)) });
 
 /**
  * Vercel serverless function: POST /api/email
@@ -216,6 +221,7 @@ export default async function handler(
         });
         if (!confirmRes.ok) {
             const detail = await confirmRes.text();
+            console.error('[brevo] confirmation rejected', confirmRes.status, detail);
             json(res, 502, {
                 error: 'Failed to send confirmation email',
                 detail: process.env.NODE_ENV === 'production' ? undefined : detail,
@@ -247,18 +253,17 @@ export default async function handler(
           </div>
         </div>`,
         });
+        // Owner notification is best-effort: even if it fails, the subscriber is
+        // already confirmed — do not turn a successful subscription into an error.
         if (!notifyRes.ok) {
             const detail = await notifyRes.text();
-            json(res, 502, {
-                error: 'Subscribed, but failed to send owner notification',
-                detail: process.env.NODE_ENV === 'production' ? undefined : detail,
-            });
-            return;
+            console.error('[brevo] notification rejected', notifyRes.status, detail);
         }
 
         json(res, 200, { success: true });
     } catch (err) {
         const message = err instanceof Error ? err.message : 'Unknown error';
+        console.error('[brevo] send failed', message);
         json(res, 500, {
             error: 'Failed to send emails',
             detail: process.env.NODE_ENV === 'production' ? undefined : message,
