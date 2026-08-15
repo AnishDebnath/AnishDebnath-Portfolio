@@ -1,5 +1,69 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView, useMotionValue, useTransform, animate } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
+
+interface CountUpProps {
+    value: number;
+    suffix?: string;
+    pad?: boolean;
+    className: string;
+}
+
+const CountUp: React.FC<CountUpProps> = ({ value, suffix = '', pad = false, className }) => {
+    const ref = useRef<HTMLSpanElement>(null);
+    const inView = useInView(ref, { once: true, amount: 0.6 });
+    const count = useMotionValue(0);
+    const display = useTransform(count, (v) => {
+        const rounded = Math.round(v);
+        const str = pad ? String(rounded).padStart(2, '0') : String(rounded);
+        return `${str}${suffix}`;
+    });
+
+    useEffect(() => {
+        if (inView) {
+            const controls = animate(count, value, { duration: 3, ease: 'easeOut' });
+            return controls.stop;
+        }
+    }, [inView, value, count]);
+
+    return (
+        <motion.span ref={ref} className={className}>
+            {display}
+        </motion.span>
+    );
+};
+
+interface TypeTextProps {
+    text: string;
+    className: string;
+}
+
+const TypeText: React.FC<TypeTextProps> = ({ text, className }) => {
+    const ref = useRef<HTMLSpanElement>(null);
+    const inView = useInView(ref, { once: true, amount: 0.6 });
+    const [chars, setChars] = useState(0);
+
+    useEffect(() => {
+        if (!inView) return;
+        const interval = setInterval(() => {
+            setChars((prev) => {
+                if (prev >= text.length) {
+                    clearInterval(interval);
+                    return prev;
+                }
+                return prev + 1;
+            });
+        }, 60);
+        return () => clearInterval(interval);
+    }, [inView, text]);
+
+    return (
+        <span ref={ref} className={className}>
+            {text.slice(0, chars)}
+            {chars < text.length && <span className="inline-block w-[2px] h-[1em] align-middle bg-current ml-0.5 animate-pulse" />}
+        </span>
+    );
+};
 
 export const Stats: React.FC = () => {
     return (
@@ -11,17 +75,35 @@ export const Stats: React.FC = () => {
                     subtitle="I blend strategy, design, and execution to create meaningful digital experiences."
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.25 }}
+                    variants={{
+                        hidden: {},
+                        visible: { transition: { staggerChildren: 0.3 } }
+                    }}
+                >
 
                     {/* Stat Card 1: Successful Projects */}
-                    <div className="bg-[#f5f2eb] rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-300 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-2xs">
+                    <motion.div
+                        variants={{
+                            hidden: { opacity: 0, y: 40 },
+                            visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } }
+                        }}
+                        className="bg-[#f5f2eb] rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-300 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-2xs"
+                    >
                         <div className="relative z-10 pointer-events-none">
-                            <span className="font-display text-6xl sm:text-7xl text-[#0d130d] block mb-1 font-black tracking-tight leading-none">
-                                20+
-                            </span>
-                            <span className="font-sans text-base sm:text-lg font-medium text-[#e74723] block mt-2">
-                                Successful Projects
-                            </span>
+                            <CountUp
+                                value={20}
+                                suffix="+"
+                                className="font-display text-6xl sm:text-7xl text-[#0d130d] block mb-1 font-black tracking-tight leading-none"
+                            />
+                            <TypeText
+                                text="Successful Projects"
+                                className="font-sans text-base sm:text-lg font-medium text-[#e74723] block mt-2"
+                            />
                         </div>
 
                         {/* Tilted Diagonal Pill Pile with Alternating Marquee - Edge to Edge 3 Rows */}
@@ -102,24 +184,48 @@ export const Stats: React.FC = () => {
 
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Stat Card 2: Client Satisfaction Rate (Dark theme) */}
-                    <div className="bg-[#0d130d] text-white rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-800 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-md">
+                    <motion.div
+                        variants={{
+                            hidden: { opacity: 0, y: 40 },
+                            visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } }
+                        }}
+                        className="bg-[#0d130d] text-white rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-800 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-md"
+                    >
                         <div>
-                            <span className="font-display text-6xl sm:text-7xl text-white block mb-1 font-black tracking-tight leading-none">
-                                95%
-                            </span>
-                            <span className="font-sans text-base sm:text-lg font-medium text-[#1fc932] block mt-2">
-                                Client Satisfaction Rate
-                            </span>
+                            <CountUp
+                                value={95}
+                                suffix="%"
+                                className="font-display text-6xl sm:text-7xl text-white block mb-1 font-black tracking-tight leading-none"
+                            />
+                            <TypeText
+                                text="Client Satisfaction Rate"
+                                className="font-sans text-base sm:text-lg font-medium text-[#1fc932] block mt-2"
+                            />
                         </div>
 
                         {/* Chat Bubble Widget */}
-                        <div className="mt-8 pt-2">
+                        <motion.div
+                            className="mt-8 pt-2"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.5 }}
+                            variants={{
+                                hidden: {},
+                                visible: { transition: { staggerChildren: 0.25, delayChildren: 0.4 } }
+                            }}
+                        >
 
                             {/* Message 1 Row */}
-                            <div className="flex items-center gap-3 mb-2.5">
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, x: -20 },
+                                    visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } }
+                                }}
+                                className="flex items-center gap-3 mb-2.5"
+                            >
                                 {/* Line art guy avatar in white circle with red border */}
                                 <div className="w-10 h-10 rounded-full bg-white border border-[#e74723] flex items-center justify-center p-0.5 shrink-0 shadow-sm">
                                     <svg viewBox="0 0 40 40" className="w-full h-full text-neutral-900 stroke-current fill-none stroke-[2] stroke-linecap-round stroke-linejoin-round">
@@ -140,10 +246,16 @@ export const Stats: React.FC = () => {
                                 <div className="bg-[#1c241c] text-white px-4 py-2.5 rounded-2xl rounded-tl-xs text-xs font-sans font-medium border border-white/10 shadow-sm">
                                     Hi, Anish
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* Message 2 Box */}
-                            <div className="ml-13">
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, x: 20 },
+                                    visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } }
+                                }}
+                                className="ml-13"
+                            >
                                 <div className="bg-[#1c241c] text-white p-3.5 rounded-2xl rounded-tl-xs text-xs font-sans leading-relaxed border border-white/10 shadow-sm">
                                     Huge thanks for the effort. You totally exceeded my expectations!
                                 </div>
@@ -151,24 +263,40 @@ export const Stats: React.FC = () => {
                                     <span className="font-bold">✓✓</span>
                                     <span className="ml-1">5m ago</span>
                                 </div>
-                            </div>
+                            </motion.div>
 
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Stat Card 3: Years of Experience */}
-                    <div className="bg-[#f5f2eb] rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-300 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-2xs">
+                    <motion.div
+                        variants={{
+                            hidden: { opacity: 0, y: 40 },
+                            visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } }
+                        }}
+                        className="bg-[#f5f2eb] rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-300 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-2xs"
+                    >
                         <div>
-                            <span className="font-display text-6xl sm:text-7xl text-[#0d130d] block mb-1 font-black tracking-tight leading-none">
-                                04+
-                            </span>
-                            <span className="font-sans text-base sm:text-lg font-medium text-[#e74723] block mt-2">
-                                Years of Experience
-                            </span>
+                            <CountUp
+                                value={4}
+                                suffix="+"
+                                pad
+                                className="font-display text-6xl sm:text-7xl text-[#0d130d] block mb-1 font-black tracking-tight leading-none"
+                            />
+                            <TypeText
+                                text="Years of Experience"
+                                className="font-sans text-base sm:text-lg font-medium text-[#e74723] block mt-2"
+                            />
                         </div>
 
                         {/* Speedometer Dial Gauge Graphic */}
-                        <div className="relative mt-2 -mb-8 flex items-end justify-center h-48 overflow-hidden select-none">
+                        <motion.div
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.6 }}
+                            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.4 }}
+                            className="relative mt-2 -mb-8 flex items-end justify-center h-48 overflow-hidden select-none"
+                        >
                             <svg viewBox="0 0 240 135" className="w-60 sm:w-64 h-auto overflow-visible">
 
                                 {/* Outer Hatch Tick Pattern Arc */}
@@ -194,26 +322,26 @@ export const Stats: React.FC = () => {
                                 <text x="90" y="58" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">03</text>
 
                                 {/* Active highlighted 06 in orange */}
-                                <text x="120" y="32" fontSize="12" fontWeight="bold" fontFamily="sans-serif" fill="#e74723" textAnchor="middle">04</text>
+                                <text x="120" y="42" fontSize="12" fontWeight="bold" fontFamily="sans-serif" fill="#e74723" textAnchor="middle">04</text>
 
                                 <text x="150" y="58" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">05</text>
                                 <text x="176" y="82" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">06</text>
                                 <text x="190" y="115" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">07</text>
 
                                 {/* Red Pointer Arrow line pointing to 06 */}
-                                <line x1="120" y1="125" x2="120" y2="42" stroke="#e74723" strokeWidth="2.5" strokeLinecap="round" />
+                                <line x1="120" y1="125" x2="120" y2="58" stroke="#e74723" strokeWidth="2.5" strokeLinecap="round" />
 
                                 {/* Pointer Arrowhead */}
-                                <polygon points="120,36 116,44 124,44" fill="#e74723" />
+                                <polygon points="120,52 116,60 124,60" fill="#e74723" />
 
                                 {/* Center Base Pivot */}
                                 <circle cx="120" cy="125" r="11" fill="#0d130d" />
                                 <circle cx="120" cy="125" r="4.5" fill="#e74723" />
                             </svg>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
-                </div>
+                </motion.div>
 
             </div>
         </section>
