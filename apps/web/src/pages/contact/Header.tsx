@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { Mail } from 'lucide-react';
 
 export const Header: React.FC = () => {

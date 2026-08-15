@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageRoute } from '../../types';
 import { CASE_STUDIES } from '../../data/portfolioData';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { CaseStudyCard } from '../../components/CaseStudyCard';
 
 interface PortfolioSectionProps {

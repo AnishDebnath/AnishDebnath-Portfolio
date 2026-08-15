@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { LayoutDashboard, Layers, Users } from 'lucide-react';
 import { EXPERIENCE_DATA, ExperienceItemData, ExperienceImage } from '../../data/experienceData';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { JournalArticle, PageRoute } from '../../types';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { JournalCard } from '../../components/JournalCard';
 import { BookOpen } from 'lucide-react';
 

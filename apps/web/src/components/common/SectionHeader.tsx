@@ -53,7 +53,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
         {/* Right: Subtitle Description with compact narrow max width */}
         {subtitle && (
-          <p className={`w-80 max-w-80 text-base sm:text-lg font-sans font-normal leading-snug sm:leading-7 ${
+          <p className={`w-80 max-w-80 text-sm sm:text-base font-sans font-normal leading-snug sm:leading-6 ${
             dark ? 'text-white/90' : 'text-[#191919]'
           }`}>
             {subtitle}

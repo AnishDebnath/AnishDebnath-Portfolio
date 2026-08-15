@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SectionHeader } from './SectionHeader';
+import { SectionHeader } from './common/SectionHeader';
 import { MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import { DEFAULT_FAQ_DATA } from '../data/faqData';
 

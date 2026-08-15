@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageRoute } from '../../types';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { FaqSection } from '../../components/FaqSection';
 import { CtaBanner } from '../../components/CtaBanner';
 import { FileText } from 'lucide-react';

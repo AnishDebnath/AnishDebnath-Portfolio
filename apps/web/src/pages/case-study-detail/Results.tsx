@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaseStudy } from '../../types';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 
 interface ResultsSectionProps {
     project: CaseStudy;

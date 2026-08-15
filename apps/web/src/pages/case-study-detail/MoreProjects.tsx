@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaseStudy, PageRoute } from '../../types';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { CaseStudyCard } from '../../components/CaseStudyCard';
 
 interface MoreProjectsSectionProps {

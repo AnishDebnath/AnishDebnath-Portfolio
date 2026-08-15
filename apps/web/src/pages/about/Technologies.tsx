@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { TECH_LIST } from '../../data/technologiesData';
 
 export const TechnologiesSection: React.FC = () => {

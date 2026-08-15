@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { STUDY_DATA, StudyItemData } from '../../data/studyData';
 
 export const StudySection: React.FC = () => {

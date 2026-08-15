@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageRoute } from '../../types';
 import { JOURNAL_ARTICLES } from '../../data/portfolioData';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { JournalCard } from '../../components/JournalCard';
 
 interface CaseStudySectionProps {

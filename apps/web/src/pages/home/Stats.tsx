@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 
 export const Stats: React.FC = () => {
     return (
@@ -7,8 +7,8 @@ export const Stats: React.FC = () => {
             <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
 
                 <SectionHeader
-                    title="STATS"
-                    subtitle="A quick look at the measurable impact behind Anish's design journey."
+                    title="Why choose me"
+                    subtitle="I blend strategy, design, and execution to create meaningful digital experiences."
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -17,7 +17,7 @@ export const Stats: React.FC = () => {
                     <div className="bg-[#f5f2eb] rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-300 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-2xs">
                         <div className="relative z-10 pointer-events-none">
                             <span className="font-display text-6xl sm:text-7xl text-[#0d130d] block mb-1 font-black tracking-tight leading-none">
-                                80+
+                                20+
                             </span>
                             <span className="font-sans text-base sm:text-lg font-medium text-[#e74723] block mt-2">
                                 Successful Projects
@@ -32,13 +32,13 @@ export const Stats: React.FC = () => {
                                 <div className="flex overflow-hidden w-full">
                                     <div className="animate-marquee-left flex items-center gap-3">
                                         {[
-                                            { label: 'Law & Attorney', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
+                                            { label: 'Agency', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
                                             { label: 'Real Estate', style: 'bg-[#0d130d] text-white' },
                                             { label: 'Fintech', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
                                             { label: 'SaaS Platform', style: 'bg-[#133c23] text-white' },
                                             { label: 'Healthcare', style: 'bg-[#f2512d] text-white' },
                                             { label: 'AI Products', style: 'bg-[#0d130d] text-white' },
-                                            { label: 'Law & Attorney', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
+                                            { label: 'Agency', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
                                             { label: 'Real Estate', style: 'bg-[#0d130d] text-white' },
                                             { label: 'Fintech', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
                                             { label: 'SaaS Platform', style: 'bg-[#133c23] text-white' },
@@ -56,13 +56,13 @@ export const Stats: React.FC = () => {
                                 <div className="flex overflow-hidden w-full">
                                     <div className="animate-marquee-right flex items-center gap-3">
                                         {[
-                                            { label: 'Medical', style: 'bg-[#f2512d] text-white' },
+                                            { label: 'SaaS Product', style: 'bg-[#f2512d] text-white' },
                                             { label: 'e-Commerce', style: 'bg-[#133c23] text-white' },
                                             { label: 'Branding', style: 'bg-[#0d130d] text-white' },
                                             { label: 'Web3', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
                                             { label: 'Mobile Apps', style: 'bg-[#0d130d] text-white' },
                                             { label: 'Design Systems', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
-                                            { label: 'Medical', style: 'bg-[#f2512d] text-white' },
+                                            { label: 'SaaS Product', style: 'bg-[#f2512d] text-white' },
                                             { label: 'e-Commerce', style: 'bg-[#133c23] text-white' },
                                             { label: 'Branding', style: 'bg-[#0d130d] text-white' },
                                             { label: 'Web3', style: 'bg-white text-[#0d130d] border border-[#f2512d]' },
@@ -160,7 +160,7 @@ export const Stats: React.FC = () => {
                     <div className="bg-[#f5f2eb] rounded-[24px] p-7 sm:p-8 border border-dashed border-neutral-300 relative overflow-hidden flex flex-col justify-between min-h-[380px] shadow-2xs">
                         <div>
                             <span className="font-display text-6xl sm:text-7xl text-[#0d130d] block mb-1 font-black tracking-tight leading-none">
-                                06+
+                                04+
                             </span>
                             <span className="font-sans text-base sm:text-lg font-medium text-[#e74723] block mt-2">
                                 Years of Experience
@@ -189,16 +189,16 @@ export const Stats: React.FC = () => {
                                 />
 
                                 {/* Arc Numbers */}
-                                <text x="50" y="115" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">03</text>
-                                <text x="64" y="78" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">04</text>
-                                <text x="90" y="48" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">05</text>
+                                <text x="50" y="115" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">01</text>
+                                <text x="64" y="82" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">02</text>
+                                <text x="90" y="58" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">03</text>
 
                                 {/* Active highlighted 06 in orange */}
-                                <text x="120" y="32" fontSize="12" fontWeight="bold" fontFamily="sans-serif" fill="#e74723" textAnchor="middle">06</text>
+                                <text x="120" y="32" fontSize="12" fontWeight="bold" fontFamily="sans-serif" fill="#e74723" textAnchor="middle">04</text>
 
-                                <text x="150" y="48" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">07</text>
-                                <text x="176" y="78" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">08</text>
-                                <text x="190" y="115" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">09</text>
+                                <text x="150" y="58" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">05</text>
+                                <text x="176" y="82" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">06</text>
+                                <text x="190" y="115" fontSize="10" fontFamily="sans-serif" fill="#b0a999" textAnchor="middle">07</text>
 
                                 {/* Red Pointer Arrow line pointing to 06 */}
                                 <line x1="120" y1="125" x2="120" y2="42" stroke="#e74723" strokeWidth="2.5" strokeLinecap="round" />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { SectionHeader } from './SectionHeader';
+import { SectionHeader } from './common/SectionHeader';
 import { Search, Palette, Code2, Rocket, CheckCircle2, Clock, Sparkles, Users, Lightbulb, Compass, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PageRoute } from '../types';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
-import { SectionHeader } from '../../components/SectionHeader';
+import { SectionHeader } from '../../components/common/SectionHeader';
 import { DarkButton } from '../../components/DarkButton';
 import { ACTIVE_PROJECTS, MarqueeCardData } from '../../data/nowWorkingOnData';
 
