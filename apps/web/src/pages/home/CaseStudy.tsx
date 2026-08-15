@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { JOURNAL_ARTICLES } from '../../data/portfolioData';
 import { SectionHeader } from '../../components/common/SectionHeader';
@@ -25,16 +26,32 @@ export const CaseStudySection: React.FC<CaseStudySectionProps> = ({ onNavigate }
                     dark={true}
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mt-8 sm:mt-12">
-                    {JOURNAL_ARTICLES.slice(0, 2).map((article) => (
-                        <JournalCard
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={{
+                        hidden: {},
+                        visible: { transition: { staggerChildren: 0.18 } },
+                    }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mt-8 sm:mt-12"
+                >
+                    {JOURNAL_ARTICLES.slice(0, 2).map((article, idx) => (
+                        <motion.div
                             key={article.id}
-                            article={article}
-                            darkTheme={true}
-                            onNavigate={(route, id) => onNavigate(route, id)}
-                        />
+                            variants={{
+                                hidden: { opacity: 0, y: 40 },
+                                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+                            }}
+                        >
+                            <JournalCard
+                                article={article}
+                                darkTheme={true}
+                                onNavigate={(route, id) => onNavigate(route, id)}
+                            />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
             </div>
         </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface SolutionsSectionProps {
     solutionBullets: string[];
@@ -23,16 +24,32 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ solutionBull
                     </div>
 
                     {/* Right Bulleted List */}
-                    <div className="md:col-span-8 space-y-4">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={{
+                            hidden: {},
+                            visible: { transition: { staggerChildren: 0.12 } },
+                        }}
+                        className="md:col-span-8 space-y-4"
+                    >
                         {solutionBullets.map((bullet, idx) => (
-                            <div key={idx} className="flex items-start gap-3.5">
+                            <motion.div
+                                key={idx}
+                                variants={{
+                                    hidden: { opacity: 0, x: 24 },
+                                    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                                }}
+                                className="flex items-start gap-3.5"
+                            >
                                 <span className="w-2 h-2 rounded-sm bg-[#f2512d] mt-2 shrink-0" />
                                 <p className="text-sm sm:text-base text-neutral-800 font-sans leading-relaxed">
                                     {bullet}
                                 </p>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
 
                 </div>
             </div>

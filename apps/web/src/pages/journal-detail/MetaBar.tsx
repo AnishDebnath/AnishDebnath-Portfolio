@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { JournalArticle } from '../../types';
 import { Tag } from 'lucide-react';
 
@@ -8,7 +9,13 @@ interface MetaBarProps {
 
 export const MetaBar: React.FC<MetaBarProps> = ({ article }) => {
     return (
-        <div className="flex items-center justify-center gap-3.5 mb-10 text-sm sm:text-base font-sans font-medium text-[#0d130d]">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="flex items-center justify-center gap-3.5 mb-10 text-sm sm:text-base font-sans font-medium text-[#0d130d]"
+        >
             <div className="flex items-center gap-2">
                 <img
                     src={article.author.avatar}
@@ -22,6 +29,6 @@ export const MetaBar: React.FC<MetaBarProps> = ({ article }) => {
                 <Tag className="w-4 h-4 text-[#0d130d]" />
                 <span>{article.category || article.tags?.[0] || 'Journal'}</span>
             </div>
-        </div>
+        </motion.div>
     );
 };

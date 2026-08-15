@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import heroPortrait from '../../assets/images/hero-portrait.png';
 import profilePicture from '../../assets/images/profile-picture.png';
@@ -17,10 +18,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
         <div className="relative bg-[#f2efe6] bg-hero-grid rounded-[32px] sm:rounded-[40px] md:rounded-[48px] border border-neutral-300 pt-8 sm:pt-12 md:pt-14 pb-8 sm:pb-12 px-6 sm:px-10 md:px-12 lg:px-16 shadow-sm flex flex-col md:flex-row items-stretch justify-between gap-8 md:gap-4 min-h-[420px] sm:min-h-[460px]">
 
           {/* LEFT CONTENT COLUMN */}
-          <div className="relative z-20 max-w-lg flex flex-col justify-center py-2">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+            }}
+            className="relative z-20 max-w-lg flex flex-col justify-center py-2"
+          >
 
             {/* Header: Avatar + I'm ANTONY */}
-            <div className="flex items-center gap-4 sm:gap-5 mb-5 sm:mb-6">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+              }}
+              className="flex items-center gap-4 sm:gap-5 mb-5 sm:mb-6"
+            >
               {/* Portrait Avatar Image without outer dark container box */}
               <div className="w-14 sm:w-16 md:w-18 h-18 sm:h-22 md:h-24 shrink-0 overflow-hidden rounded-2xl shadow-md -rotate-6 transform hover:rotate-0 transition-transform duration-300">
                 <img
@@ -39,20 +54,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
                   ANISH
                 </h1>
               </div>
-            </div>
+            </motion.div>
 
             {/* Sub-heading */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif font-medium text-[#0d130d] leading-snug max-w-md mb-3 sm:mb-4">
+            <motion.h2
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+              }}
+              className="text-xl sm:text-2xl md:text-3xl font-serif font-medium text-[#0d130d] leading-snug max-w-md mb-3 sm:mb-4"
+            >
               I Help Startups Design & Develop products and websites
-            </h2>
+            </motion.h2>
 
             {/* Sub-heading Description Body */}
-            <p className="text-sm sm:text-base text-neutral-600 font-sans leading-relaxed max-w-md mb-6 sm:mb-8">
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+              }}
+              className="text-sm sm:text-base text-neutral-600 font-sans leading-relaxed max-w-md mb-6 sm:mb-8"
+            >
               You need more than pretty designs. I deliver breathtaking visuals, persuasive copy, and flawless development, Ready to elevate your project?
-            </p>
+            </motion.p>
 
             {/* Action CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+              }}
+              className="flex flex-wrap items-center gap-3.5"
+            >
               <DarkButton
                 onClick={() => onNavigate('case-studies')}
                 className="px-6 py-3 sm:px-7 sm:py-3.5"
@@ -68,22 +101,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
               >
                 Get in touch
               </button>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
           {/* RIGHT PERSON IMAGE CONTAINER (Extending outside top boundary of the card) */}
-          <div className="relative md:absolute md:right-0 md:bottom-0 z-20 w-full md:w-[48%] lg:w-[50%] h-[360px] sm:h-[440px] md:h-[calc(100%+64px)] lg:h-[calc(100%+88px)] flex items-end justify-center md:justify-end pointer-events-none -mt-6 md:mt-0 md:-top-16 lg:-top-22 overflow-hidden rounded-br-[32px] sm:rounded-br-[40px] md:rounded-br-[48px]">
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            className="relative md:absolute md:right-0 md:bottom-0 z-20 w-full md:w-[48%] lg:w-[50%] h-[360px] sm:h-[440px] md:h-[calc(100%+64px)] lg:h-[calc(100%+88px)] flex items-end justify-center md:justify-end pointer-events-none -mt-6 md:mt-0 md:-top-16 lg:-top-22 overflow-hidden rounded-br-[32px] sm:rounded-br-[40px] md:rounded-br-[48px]"
+          >
             <img
               src={heroPortrait}
               alt="Designer Portrait"
               className="h-full w-auto object-contain object-bottom filter contrast-105 drop-shadow-md select-none pointer-events-none scale-[1.07] origin-bottom"
               referrerPolicy="no-referrer"
             />
-          </div>
+          </motion.div>
 
           {/* FLOATING STATUS & ACTION CARD OVER THE BOTTOM-RIGHT WITH GLASSMORPHISM */}
-          <div className="relative md:absolute md:bottom-6 lg:bottom-8 md:right-6 lg:right-10 z-30 bg-[#0d130d]/55 backdrop-blur-xl text-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/20 shadow-[0_12px_32px_rgba(0,0,0,0.35)] max-w-sm w-full md:w-auto flex items-center justify-between gap-4 mt-2 md:mt-0">
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
+            className="relative md:absolute md:bottom-6 lg:bottom-8 md:right-6 lg:right-10 z-30 bg-[#0d130d]/55 backdrop-blur-xl text-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/20 shadow-[0_12px_32px_rgba(0,0,0,0.35)] max-w-sm w-full md:w-auto flex items-center justify-between gap-4 mt-2 md:mt-0"
+          >
             <div className="pr-2">
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="relative flex h-2.5 w-2.5 items-center justify-center">
@@ -109,7 +152,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             >
               <ArrowUpRight className="w-5 h-5 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-          </div>
+          </motion.div>
 
         </div>
 

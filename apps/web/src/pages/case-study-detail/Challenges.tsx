@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { CaseStudy } from '../../types';
 
 interface ChallengesSectionProps {
@@ -9,7 +10,13 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({ project })
     return (
         <section className="py-10 sm:py-16">
             <div className="max-w-[980px] mx-auto px-4 sm:px-6">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 items-start">
+                <motion.div
+                    initial={{ opacity: 0, y: 36 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.7, ease: 'easeOut' }}
+                    className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 items-start"
+                >
 
                     {/* Left Title with Red Badge */}
                     <div className="md:col-span-4 flex items-center gap-4">
@@ -30,7 +37,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({ project })
                         </p>
                     </div>
 
-                </div>
+                </motion.div>
             </div>
         </section>
     );

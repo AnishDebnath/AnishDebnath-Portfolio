@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { STUDY_DATA, StudyItemData } from '../../data/studyData';
 
@@ -28,10 +29,23 @@ export const StudySection: React.FC = () => {
         />
 
         {/* Study Items List */}
-        <div className="space-y-12 sm:space-y-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15 } },
+          }}
+          className="space-y-12 sm:space-y-16"
+        >
           {STUDY_DATA.map((study, index) => (
-            <div 
-              key={study.id} 
+            <motion.div
+              key={study.id}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+              }}
               className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${
                 index < STUDY_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
               }`}
@@ -78,9 +92,9 @@ export const StudySection: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

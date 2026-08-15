@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { CaseStudy, PageRoute } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { CaseStudyCard } from '../../components/CaseStudyCard';
@@ -35,7 +36,13 @@ export const MoreProjectsSection: React.FC<MoreProjectsSectionProps> = ({ otherP
                 {/* Cards Stack */}
                 <div className="space-y-12 sm:space-y-16">
                     {otherProjects.map((other, index) => (
-                        <div key={other.id}>
+                        <motion.div
+                            key={other.id}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.15 }}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                        >
                             <CaseStudyCard
                                 project={other}
                                 index={index}
@@ -44,7 +51,7 @@ export const MoreProjectsSection: React.FC<MoreProjectsSectionProps> = ({ otherP
                                     window.scrollTo(0, 0);
                                 }}
                             />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 

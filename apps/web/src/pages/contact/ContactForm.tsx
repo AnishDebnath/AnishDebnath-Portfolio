@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { CheckCircle2, Mail } from 'lucide-react';
 import { DarkButton } from '../../components/DarkButton';
 
@@ -23,7 +24,13 @@ export const ContactForm: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 mb-20 sm:mb-28 max-w-[980px] mx-auto">
 
             {/* Left Column: Dark Creative Banner with full background image */}
-            <div className="md:col-span-5 bg-[#060913] text-white rounded-[28px] p-8 sm:p-10 flex flex-col justify-between overflow-hidden min-h-[460px] shadow-sm relative">
+            <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                className="md:col-span-5 bg-[#060913] text-white rounded-[28px] p-8 sm:p-10 flex flex-col justify-between overflow-hidden min-h-[460px] shadow-sm relative"
+            >
                 {/* Background image covering whole div */}
                 <img
                     src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
@@ -40,10 +47,16 @@ export const ContactForm: React.FC = () => {
                 <h2 className="font-display font-normal text-2xl sm:text-3xl uppercase tracking-tight text-[#f2512d] leading-tight relative z-10 mb-6">
                     SPARK CREATIVITY FOR YOUR UPCOMING PROJECT.
                 </h2>
-            </div>
+            </motion.div>
 
             {/* Right Column: Contact Form */}
-            <div className="md:col-span-7 bg-white rounded-[28px] p-8 sm:p-10 border border-neutral-200/80 shadow-sm flex flex-col justify-between">
+            <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+                className="md:col-span-7 bg-white rounded-[28px] p-8 sm:p-10 border border-neutral-200/80 shadow-sm flex flex-col justify-between"
+            >
                 {submitted ? (
                     <div className="text-center py-12 space-y-4 my-auto">
                         <div className="w-14 h-14 rounded-full bg-[#f2512d]/10 text-[#f2512d] flex items-center justify-center mx-auto mb-3">
@@ -141,7 +154,7 @@ export const ContactForm: React.FC = () => {
                         </div>
                     </form>
                 )}
-            </div>
+            </motion.div>
 
         </div>
     );

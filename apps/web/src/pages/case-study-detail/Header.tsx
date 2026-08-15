@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { CaseStudy } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
 
@@ -21,7 +22,13 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({ project }) => {
             />
 
             {/* Sub-header info block */}
-            <div className="max-w-[980px] mx-auto mb-10 pt-2 px-4 sm:px-6">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                className="max-w-[980px] mx-auto mb-10 pt-2 px-4 sm:px-6"
+            >
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
 
                     {/* Left: Logo & Description */}
@@ -46,10 +53,16 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({ project }) => {
                     </div>
 
                 </div>
-            </div>
+            </motion.div>
 
             {/* Main Hero Showcase Image */}
-            <div className="mb-16 sm:mb-20">
+            <motion.div
+                initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-16 sm:mb-20"
+            >
                 <div className="rounded-[28px] sm:rounded-[32px] overflow-hidden border border-neutral-300 aspect-[16/9] shadow-xl bg-neutral-900">
                     <img
                         src={project.heroImage || project.coverImage}
@@ -57,7 +70,7 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({ project }) => {
                         className="w-full h-full object-cover"
                     />
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };

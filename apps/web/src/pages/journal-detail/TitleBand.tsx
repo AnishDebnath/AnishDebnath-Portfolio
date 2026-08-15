@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface TitleBandProps {
     title: string;
@@ -14,9 +15,29 @@ export const TitleBand: React.FC<TitleBandProps> = ({ title }) => {
                 <div className="w-full border-b border-dashed border-neutral-300" />
             </div>
 
-            <h1 className="relative z-10 font-display font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-[#0d130d] leading-[1.08] text-center max-w-4xl mx-auto px-4">
-                {title}
-            </h1>
+            <motion.h1
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.04 } },
+                }}
+                className="relative z-10 font-display font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-[#0d130d] leading-[1.08] text-center max-w-4xl mx-auto px-4"
+            >
+                {title.split('').map((char, i) => (
+                    <motion.span
+                        key={i}
+                        variants={{
+                            hidden: { opacity: 0, y: 24 },
+                            visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                        }}
+                        className="inline-block whitespace-pre"
+                    >
+                        {char}
+                    </motion.span>
+                ))}
+            </motion.h1>
         </div>
     );
 };

@@ -61,7 +61,7 @@ export const NowWorkingOnSection: React.FC<NowWorkingOnSectionProps> = ({ darkTh
               >
                 {/* 1. BACKGROUND SCROLLING MARQUEES (Upper goes Right-to-Left, Bottom goes Left-to-Right with tight gap between rows) */}
                 <div className="absolute inset-0 flex flex-col justify-center gap-3 sm:gap-5 py-12 sm:py-16 pointer-events-none overflow-hidden select-none">
-                  
+
                   {/* UPPER MARQUEE ROW (RIGHT TO LEFT) */}
                   <div className="relative w-full overflow-hidden">
                     <div className="animate-marquee-left flex items-center gap-4 sm:gap-6 py-1">
@@ -82,7 +82,7 @@ export const NowWorkingOnSection: React.FC<NowWorkingOnSectionProps> = ({ darkTh
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 0.2 }}
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: 'easeInOut' }}
                   className="absolute inset-0 bg-black z-10 pointer-events-none"
                 />
@@ -91,7 +91,7 @@ export const NowWorkingOnSection: React.FC<NowWorkingOnSectionProps> = ({ darkTh
                 <motion.div
                   initial={{ opacity: 0, y: 70, scale: 0.94 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   className="relative z-20 w-[290px] sm:w-[330px] md:w-[360px] aspect-[3/4] bg-white text-[#0d130d] rounded-[28px] sm:rounded-[34px] p-6 sm:p-8 border border-neutral-200/90 shadow-2xl flex flex-col justify-between"
                 >

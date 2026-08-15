@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { LayoutDashboard, Layers, Users } from 'lucide-react';
 import { EXPERIENCE_DATA, ExperienceItemData, ExperienceImage } from '../../data/experienceData';
@@ -52,10 +53,23 @@ export const Experience: React.FC = () => {
                 />
 
                 {/* Experience List */}
-                <div className="space-y-12 sm:space-y-16 pb-20 border-b border-neutral-800">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={{
+                        hidden: {},
+                        visible: { transition: { staggerChildren: 0.15 } },
+                    }}
+                    className="space-y-12 sm:space-y-16 pb-20 border-b border-neutral-800"
+                >
                     {EXPERIENCE_DATA.map((exp, index) => (
-                        <div
+                        <motion.div
                             key={exp.id}
+                            variants={{
+                                hidden: { opacity: 0, y: 40 },
+                                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                            }}
                             className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${index < EXPERIENCE_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
                                 }`}
                         >
@@ -84,12 +98,18 @@ export const Experience: React.FC = () => {
                                 {/* Image side by side boxes right after description */}
                                 <ExperienceImageGrid images={exp.images} />
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Currently & Quote Row */}
-                <div className="pt-16 grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.7, ease: 'easeOut' }}
+                    className="pt-16 grid grid-cols-1 md:grid-cols-12 gap-10 items-start"
+                >
 
                     {/* Left Quote */}
                     <div className="md:col-span-6 space-y-3">
@@ -128,7 +148,7 @@ export const Experience: React.FC = () => {
                         </ul>
                     </div>
 
-                </div>
+                </motion.div>
 
             </div>
         </section>

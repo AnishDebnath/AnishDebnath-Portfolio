@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
 
 export const Intro: React.FC = () => {
@@ -19,7 +20,13 @@ export const Intro: React.FC = () => {
 
             {/* 2. HERO PORTRAIT BANNER */}
             <div className="max-w-[1085px] mx-auto px-4 sm:px-6 mb-16 sm:mb-20">
-                <div className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden border border-neutral-300 bg-gradient-to-r from-[#f2512d] via-[#e74723] to-[#801e0a] aspect-[16/9] sm:aspect-[2.4/1] shadow-sm">
+                <motion.div
+                    initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden border border-neutral-300 bg-gradient-to-r from-[#f2512d] via-[#e74723] to-[#801e0a] aspect-[16/9] sm:aspect-[2.4/1] shadow-sm"
+                >
                     <img
                         src="https://framerusercontent.com/images/gIB852FnoSAoaST2b7XHe096Ls.png?scale-down-to=2048"
                         onError={(e) => {
@@ -28,7 +35,7 @@ export const Intro: React.FC = () => {
                         alt="Anish Portrait"
                         className="w-full h-full object-cover object-center"
                     />
-                </div>
+                </motion.div>
             </div>
 
             {/* 3. STATS & BIO ROW */}
@@ -36,7 +43,13 @@ export const Intro: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start pb-20 sm:pb-28">
 
                     {/* Left: Stats Numbers */}
-                    <div className="md:col-span-4 space-y-8">
+                    <motion.div
+                        initial={{ opacity: 0, x: -32 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+                        className="md:col-span-4 space-y-8"
+                    >
                         <div>
                             <span className="font-display font-black text-5xl sm:text-6xl text-[#0d130d] block leading-none">
                                 80+
@@ -63,17 +76,23 @@ export const Intro: React.FC = () => {
                                 Years of Experience
                             </span>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right: Bio Text Paragraphs */}
-                    <div className="md:col-span-8 space-y-6 font-sans text-base sm:text-lg text-[#2c332c] leading-relaxed">
+                    <motion.div
+                        initial={{ opacity: 0, x: 32 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+                        className="md:col-span-8 space-y-6 font-sans text-base sm:text-lg text-[#2c332c] leading-relaxed"
+                    >
                         <p>
                             <span className="font-medium text-[#e74723]">I'm Anish Debnath,</span> a passionate UI/UX designer with over 6 years of experience creating clean, conversion-focused digital experiences. I specialize in designing modern websites, landing pages, and SaaS platforms that blend usability with strong visual appeal.
                         </p>
                         <p>
                             <span className="font-medium text-[#e74723]">My design philosophy</span> is simple — clarity, consistency, and creativity. I believe a great design not only looks good but solves real problems and drives business results. Over the years, I’ve collaborated with startups, agencies, and global brands across industries like real estate, e-commerce, tech, and law.
                         </p>
-                    </div>
+                    </motion.div>
 
                 </div>
             </div>

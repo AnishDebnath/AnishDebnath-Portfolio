@@ -89,8 +89,12 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ darkTh
 
   // Helper render for standard cards
   const renderStandardCard = (item: TestimonialItem) => (
-    <div
+    <motion.div
       key={item.id}
+      initial={{ opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`${darkTheme ? 'bg-[#0d1322] border-neutral-800 shadow-md' : 'bg-white border-neutral-100 shadow-[0_12px_35px_rgba(0,0,0,0.06)]'} rounded-[28px] sm:rounded-[32px] p-6 sm:p-7 border relative text-left transition-all hover:shadow-lg flex flex-col justify-between min-h-[280px] sm:min-h-[320px]`}
     >
       {/* Top Right Floating Avatar */}
@@ -115,7 +119,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ darkTh
           <span className={`${darkTheme ? 'text-neutral-400' : 'text-neutral-500'} font-normal`}>{item.role}</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 
   return (
@@ -157,7 +161,13 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ darkTh
             {renderStandardCard(centerColumnTop)}
 
             {/* FEATURED MIDDLE CARD (Yellow Photo + Dark Card) */}
-            <div className="bg-[#080808] text-white rounded-[28px] sm:rounded-[32px] p-3.5 sm:p-4 shadow-[0_25px_60px_rgba(0,0,0,0.4)] border border-neutral-900/80 relative text-left transition-all hover:shadow-[0_30px_70px_rgba(0,0,0,0.5)]">
+            <motion.div
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+              className="bg-[#080808] text-white rounded-[28px] sm:rounded-[32px] p-3.5 sm:p-4 shadow-[0_25px_60px_rgba(0,0,0,0.4)] border border-neutral-900/80 relative text-left transition-all hover:shadow-[0_30px_70px_rgba(0,0,0,0.5)]"
+            >
               {/* Image Container with Inner Rounded Radius */}
               <div className="w-full h-56 sm:h-64 overflow-hidden rounded-[20px] sm:rounded-[22px] bg-[#eab308] relative">
                 <img
@@ -179,7 +189,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ darkTh
                   <span className="text-neutral-400 font-normal">{centerColumnFeatured.role}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Bottom Center Card */}
             {renderStandardCard(centerColumnBottom)}

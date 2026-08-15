@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { TECH_LIST } from '../../data/technologiesData';
 
@@ -23,26 +24,45 @@ export const TechnologiesSection: React.FC = () => {
         <div className="mt-8 sm:mt-12 space-y-8">
           
           {/* Subtitle Description text wrapped in a centered div */}
-          <div className="flex justify-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="flex justify-center text-center"
+          >
             <p className="font-sans text-base sm:text-lg text-neutral-700 leading-relaxed max-w-3xl">
               Over the years, I have worked with a variety of technologies. Here are some of the technologies I have experience with:
             </p>
-          </div>
+          </motion.div>
 
           {/* Tech Pills Grid / Flex Wrap */}
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.04 } },
+            }}
+            className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2"
+          >
             {TECH_LIST.map((tech, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.7, y: 12 },
+                  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                }}
                 className="group flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl bg-[#f5f2eb] border border-neutral-300 text-[#0d130d] text-xs sm:text-sm font-sans font-semibold shadow-2xs hover:bg-[#0d130d] hover:text-white hover:border-[#0d130d] hover:scale-105 transition-all duration-300 cursor-default select-none"
               >
                 <span className="shrink-0 group-hover:scale-110 transition-transform duration-300">
                   {tech.icon}
                 </span>
                 <span>{tech.name}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Footer Text */}
           <div className="pt-4 text-center">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Download, ExternalLink, FileText, CheckCircle2 } from 'lucide-react';
 
 interface ShowcaseProps {
@@ -16,7 +17,13 @@ export const Showcase: React.FC<ShowcaseProps> = ({ downloadSuccess, onDownload,
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
                     {/* LEFT COLUMN: Bio, Meta Specs, Download File Card & Action Buttons (5 cols) */}
-                    <div className="lg:col-span-5 bg-white border border-neutral-200/90 rounded-3xl sm:rounded-[32px] p-6 sm:p-8 shadow-sm space-y-6">
+                    <motion.div
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.7, ease: 'easeOut' }}
+                        className="lg:col-span-5 bg-white border border-neutral-200/90 rounded-3xl sm:rounded-[32px] p-6 sm:p-8 shadow-sm space-y-6"
+                    >
 
                         <div className="space-y-6">
                             {/* Heading */}
@@ -104,10 +111,16 @@ export const Showcase: React.FC<ShowcaseProps> = ({ downloadSuccess, onDownload,
                             </div>
                         </div>
 
-                    </div>
+                    </motion.div>
 
                     {/* RIGHT COLUMN: Mac-style Window Frame with Live Paper CV Preview (7 cols) - Matching Height */}
-                    <div className="lg:col-span-7 bg-white border border-neutral-200/90 rounded-3xl sm:rounded-[32px] p-3 sm:p-5 lg:p-6 shadow-sm relative flex flex-col h-full min-h-[520px]">
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+                        className="lg:col-span-7 bg-white border border-neutral-200/90 rounded-3xl sm:rounded-[32px] p-3 sm:p-5 lg:p-6 shadow-sm relative flex flex-col h-full min-h-[520px]"
+                    >
 
                         {/* Window Controls Top Bar */}
                         <div className="relative flex items-center justify-center pb-3.5 px-2 border-b border-neutral-200/80 mb-3 sm:mb-4">
@@ -269,7 +282,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({ downloadSuccess, onDownload,
 
                         </div>
 
-                    </div>
+                    </motion.div>
 
                 </div>
 

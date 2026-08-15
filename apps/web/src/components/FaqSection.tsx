@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { SectionHeader } from './common/SectionHeader';
 import { MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import { DEFAULT_FAQ_DATA } from '../data/faqData';
@@ -35,12 +36,25 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ className = '', darkThem
         />
 
         {/* FAQ Accordion List */}
-        <div className="max-w-3xl mx-auto space-y-3">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } },
+          }}
+          className="max-w-3xl mx-auto space-y-3"
+        >
           {DEFAULT_FAQ_DATA.map((faq) => {
             const isOpen = openFaq === faq.id;
             return (
-              <div 
+              <motion.div
                 key={faq.id}
+                variants={{
+                  hidden: { opacity: 0, y: 24 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                }}
                 className={`rounded-2xl transition-all border overflow-hidden ${
                   darkTheme
                     ? isOpen 
@@ -69,10 +83,10 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ className = '', darkThem
                     {faq.answer}
                   </div>
                 )}
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

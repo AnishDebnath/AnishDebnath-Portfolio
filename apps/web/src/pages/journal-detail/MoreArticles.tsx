@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { JournalArticle, PageRoute } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { JournalCard } from '../../components/JournalCard';
@@ -25,19 +26,35 @@ export const MoreArticlesSection: React.FC<MoreArticlesSectionProps> = ({ relate
                     icon={<BookOpen className="w-6 h-6 stroke-[2.2]" />}
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mt-8 sm:mt-12">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={{
+                        hidden: {},
+                        visible: { transition: { staggerChildren: 0.15 } },
+                    }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mt-8 sm:mt-12"
+                >
                     {relatedArticles.map((rel) => (
-                        <JournalCard
+                        <motion.div
                             key={rel.id}
-                            article={rel}
-                            darkTheme={true}
-                            onNavigate={(route, id) => {
-                                onNavigate(route, id);
-                                window.scrollTo(0, 0);
+                            variants={{
+                                hidden: { opacity: 0, y: 40 },
+                                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
                             }}
-                        />
+                        >
+                            <JournalCard
+                                article={rel}
+                                darkTheme={true}
+                                onNavigate={(route, id) => {
+                                    onNavigate(route, id);
+                                    window.scrollTo(0, 0);
+                                }}
+                            />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

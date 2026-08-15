@@ -1,8 +1,15 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 export const TermsContent: React.FC = () => {
     return (
-        <div className="max-w-[760px] mx-auto space-y-8 sm:space-y-10 text-[#0d130d]">
+        <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="max-w-[760px] mx-auto space-y-8 sm:space-y-10 text-[#0d130d]"
+        >
 
             <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed">
                 Welcome to Anish Debnath's Portfolio Website (“we,” “our,” or “us”). By accessing or using this website, you agree to comply with and be bound by the following Terms of Service. Please read them carefully before using this site.
@@ -93,6 +100,6 @@ export const TermsContent: React.FC = () => {
                 </p>
             </div>
 
-        </div>
+        </motion.div>
     );
 };

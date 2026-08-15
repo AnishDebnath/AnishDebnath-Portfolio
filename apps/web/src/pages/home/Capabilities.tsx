@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
 
 interface CapabilitiesSectionProps {
@@ -31,10 +32,25 @@ export const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({ onNavi
         />
 
         {/* Asymmetric Bento Grid (Row 1: 5-col / 7-col, Row 2: 7-col / 5-col) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 mt-8 sm:mt-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15 } },
+          }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 mt-8 sm:mt-12"
+        >
           
           {/* 1. BRANDING CARD (Row 1 Left - Narrow 5/12) */}
-          <div className={`md:col-span-5 ${darkTheme ? 'bg-[#0d1322] border-neutral-800' : 'bg-white border-neutral-200/90'} rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 border flex flex-col justify-between overflow-hidden relative group hover:border-[#f2512d]/50 transition-all duration-300 shadow-sm`}>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40, x: -24 },
+              visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+            }}
+            className={`md:col-span-5 ${darkTheme ? 'bg-[#0d1322] border-neutral-800' : 'bg-white border-neutral-200/90'} rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 border flex flex-col justify-between overflow-hidden relative group hover:border-[#f2512d]/50 transition-all duration-300 shadow-sm`}
+          >
             <div>
               <h3 className={`font-sans font-bold text-xl sm:text-2xl ${darkTheme ? 'text-white' : 'text-[#0d130d]'} tracking-tight mb-2.5 group-hover:text-[#f2512d] transition-colors`}>
                 Branding
@@ -82,10 +98,16 @@ export const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({ onNavi
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* 2. WEB DESIGN CARD (Row 1 Right - Wide 7/12) */}
-          <div className={`md:col-span-7 ${darkTheme ? 'bg-[#0d1322] border-neutral-800' : 'bg-white border-neutral-200/90'} rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 border flex flex-col justify-between overflow-hidden relative group hover:border-[#f2512d]/50 transition-all duration-300 shadow-sm`}>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40, x: 24 },
+              visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+            }}
+            className={`md:col-span-7 ${darkTheme ? 'bg-[#0d1322] border-neutral-800' : 'bg-white border-neutral-200/90'} rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 border flex flex-col justify-between overflow-hidden relative group hover:border-[#f2512d]/50 transition-all duration-300 shadow-sm`}
+          >
             <div>
               <h3 className={`font-sans font-bold text-xl sm:text-2xl ${darkTheme ? 'text-white' : 'text-[#0d130d]'} tracking-tight mb-2.5 group-hover:text-[#f2512d] transition-colors`}>
                 Web Design
@@ -131,10 +153,16 @@ export const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({ onNavi
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* 3. PRODUCT DESIGN CARD (Row 2 Left - Wide 7/12) */}
-          <div className={`md:col-span-7 ${darkTheme ? 'bg-[#0d1322] border-neutral-800' : 'bg-white border-neutral-200/90'} rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 border flex flex-col justify-between overflow-hidden relative group hover:border-[#f2512d]/50 transition-all duration-300 shadow-sm`}>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40, x: -24 },
+              visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+            }}
+            className={`md:col-span-7 ${darkTheme ? 'bg-[#0d1322] border-neutral-800' : 'bg-white border-neutral-200/90'} rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 border flex flex-col justify-between overflow-hidden relative group hover:border-[#f2512d]/50 transition-all duration-300 shadow-sm`}
+          >
             <div>
               <h3 className={`font-sans font-bold text-xl sm:text-2xl ${darkTheme ? 'text-white' : 'text-[#0d130d]'} tracking-tight mb-2.5 group-hover:text-[#f2512d] transition-colors`}>
                 Product Design
@@ -184,10 +212,16 @@ export const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({ onNavi
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* 4. DEVELOPMENT CARD (Row 2 Right - Narrow 5/12) */}
-          <div className={`md:col-span-5 ${darkTheme ? 'bg-[#0d1322] border-neutral-800' : 'bg-white border-neutral-200/90'} rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 border flex flex-col justify-between overflow-hidden relative group hover:border-[#f2512d]/50 transition-all duration-300 shadow-sm`}>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 40, x: 24 },
+              visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+            }}
+            className={`md:col-span-5 ${darkTheme ? 'bg-[#0d1322] border-neutral-800' : 'bg-white border-neutral-200/90'} rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 border flex flex-col justify-between overflow-hidden relative group hover:border-[#f2512d]/50 transition-all duration-300 shadow-sm`}
+          >
             <div>
               <h3 className={`font-sans font-bold text-xl sm:text-2xl ${darkTheme ? 'text-white' : 'text-[#0d130d]'} tracking-tight mb-2.5 group-hover:text-[#f2512d] transition-colors`}>
                 Development
@@ -226,9 +260,9 @@ export const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({ onNavi
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

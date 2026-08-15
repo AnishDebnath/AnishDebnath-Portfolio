@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface SectionHeaderProps {
   title: string;
@@ -44,11 +45,31 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
               </svg>
             )}
           </div>
-          <h2 className={`font-display text-4xl sm:text-5xl uppercase tracking-normal leading-none ${
-            dark ? 'text-white' : 'text-[#0d130d]'
-          }`}>
-            {title}
-          </h2>
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.05 } },
+            }}
+            className={`font-display text-4xl sm:text-5xl uppercase tracking-normal leading-none ${
+              dark ? 'text-white' : 'text-[#0d130d]'
+            }`}
+          >
+            {title.split('').map((char, i) => (
+              <motion.span
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 24 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                }}
+                className="inline-block whitespace-pre"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.h2>
         </div>
 
         {/* Right: Subtitle Description with compact narrow max width */}

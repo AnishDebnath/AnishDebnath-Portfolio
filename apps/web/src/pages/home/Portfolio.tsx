@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { CASE_STUDIES } from '../../data/portfolioData';
 import { SectionHeader } from '../../components/common/SectionHeader';
@@ -33,8 +34,12 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onNavigate }
 
                 <div className="space-y-12 sm:space-y-20 mt-8 sm:mt-12 relative pb-16 sm:pb-24">
                     {CASE_STUDIES.map((project, index) => (
-                        <div
+                        <motion.div
                             key={project.id}
+                            initial={{ opacity: 0, y: 60 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                             className="sticky"
                             style={{
                                 top: `calc(12vh + ${index * 92}px)`,
@@ -46,7 +51,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onNavigate }
                                 index={index}
                                 onNavigate={onNavigate}
                             />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

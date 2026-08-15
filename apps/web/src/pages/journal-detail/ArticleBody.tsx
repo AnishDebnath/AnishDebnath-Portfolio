@@ -1,15 +1,36 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 export const ArticleBody: React.FC = () => {
     return (
-        <div className="max-w-3xl mx-auto space-y-10 text-neutral-800 font-sans text-base sm:text-lg leading-relaxed mb-20">
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.05 }}
+            variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.12 } },
+            }}
+            className="max-w-3xl mx-auto space-y-10 text-neutral-800 font-sans text-base sm:text-lg leading-relaxed mb-20"
+        >
 
-            <p className="text-neutral-700 leading-relaxed">
+            <motion.p
+                variants={{
+                    hidden: { opacity: 0, y: 24 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                }}
+                className="text-neutral-700 leading-relaxed"
+            >
                 In today's digital landscape, a visually appealing website is no longer enough. Businesses need to focus on conversion-driven design—crafting user experiences that guide visitors seamlessly toward desired actions. Whether it's signing up for a newsletter, purchasing a product, or exploring a service, the goal is to transform casual visitors into engaged, loyal users.
-            </p>
+            </motion.p>
 
             {/* Section 1: UNDERSTANDING THE USER JOURNEY */}
-            <div>
+            <motion.div
+                variants={{
+                    hidden: { opacity: 0, y: 24 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                }}
+            >
                 <h2 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0d130d] mb-4">
                     UNDERSTANDING THE USER JOURNEY
                 </h2>
@@ -24,10 +45,15 @@ export const ArticleBody: React.FC = () => {
                 <p className="text-neutral-700 leading-relaxed">
                     By analyzing these touchpoints, designers can create experiences that anticipate user needs, remove friction, and guide them toward the next step.
                 </p>
-            </div>
+            </motion.div>
 
             {/* Section 2: CLEAR VISUAL HIERARCHY */}
-            <div>
+            <motion.div
+                variants={{
+                    hidden: { opacity: 0, y: 24 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                }}
+            >
                 <h2 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0d130d] mb-4">
                     CLEAR VISUAL HIERARCHY
                 </h2>
@@ -42,10 +68,15 @@ export const ArticleBody: React.FC = () => {
                 <p className="text-neutral-700 leading-relaxed">
                     When users can effortlessly scan and comprehend your content, the likelihood of conversion increases significantly.
                 </p>
-            </div>
+            </motion.div>
 
             {/* Section 3: CRAFTING PERSUASIVE MICROCOPY */}
-            <div>
+            <motion.div
+                variants={{
+                    hidden: { opacity: 0, y: 24 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                }}
+            >
                 <h2 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0d130d] mb-4">
                     CRAFTING PERSUASIVE MICROCOPY
                 </h2>
@@ -60,10 +91,15 @@ export const ArticleBody: React.FC = () => {
                 <p className="text-neutral-700 leading-relaxed">
                     These small textual cues often drive big improvements in user engagement and conversions.
                 </p>
-            </div>
+            </motion.div>
 
             {/* Section 4: OPTIMIZING FOR MOBILE */}
-            <div>
+            <motion.div
+                variants={{
+                    hidden: { opacity: 0, y: 24 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                }}
+            >
                 <h2 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0d130d] mb-4">
                     OPTIMIZING FOR MOBILE
                 </h2>
@@ -78,10 +114,15 @@ export const ArticleBody: React.FC = () => {
                 <p className="text-neutral-700 leading-relaxed">
                     A seamless mobile experience keeps users engaged and reduces bounce rates, ultimately boosting conversions.
                 </p>
-            </div>
+            </motion.div>
 
             {/* Section 5: TESTING AND ITERATION */}
-            <div>
+            <motion.div
+                variants={{
+                    hidden: { opacity: 0, y: 24 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                }}
+            >
                 <h2 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0d130d] mb-4">
                     TESTING AND ITERATION
                 </h2>
@@ -96,8 +137,8 @@ export const ArticleBody: React.FC = () => {
                 <p className="text-neutral-700 leading-relaxed">
                     Data-driven iterations help you refine the experience, ensuring that design choices are always aligned with user behavior and business goals.
                 </p>
-            </div>
+            </motion.div>
 
-        </div>
+        </motion.div>
     );
 };

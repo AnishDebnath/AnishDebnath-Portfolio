@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { CASE_STUDIES } from '../../data/portfolioData';
 import { SectionHeader } from '../../components/common/SectionHeader';
@@ -34,13 +35,19 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({ onNavigate
 
                 <div className="space-y-12 sm:space-y-16 mt-8 sm:mt-12">
                     {CASE_STUDIES.map((project, index) => (
-                        <div key={project.id}>
+                        <motion.div
+                            key={project.id}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.15 }}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                        >
                             <CaseStudyCard
                                 project={project}
                                 index={index}
                                 onNavigate={onNavigate}
                             />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

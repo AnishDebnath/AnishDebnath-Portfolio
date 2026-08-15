@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import mm from '../../assets/brand-logo/mm.png';
 import tph from '../../assets/brand-logo/tph.png';
 import gconnect from '../../assets/brand-logo/gconnect.png';
@@ -17,15 +18,27 @@ export const BrandMarquee: React.FC = () => {
 
   return (
     <section className="py-8 sm:py-12 bg-[#f5f5f5] text-[#0d130d] overflow-hidden relative">
-      <div className="max-w-[1085px] mx-auto px-4 sm:px-6 mb-6 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="max-w-[1085px] mx-auto px-4 sm:px-6 mb-6 text-center"
+      >
         <p className="font-mono-tag text-xs sm:text-sm font-bold uppercase tracking-widest text-neutral-500 flex items-center justify-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#f2512d]" />
           Trusted by brands & teams around the world
           <span className="w-1.5 h-1.5 rounded-full bg-[#f2512d]" />
         </p>
-      </div>
+      </motion.div>
 
-      <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+        className="max-w-[1085px] mx-auto px-4 sm:px-6"
+      >
         <div className="relative w-full overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#f5f5f5] via-[#f5f5f5]/90 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#f5f5f5] via-[#f5f5f5]/90 to-transparent z-10 pointer-events-none" />
@@ -45,7 +58,7 @@ export const BrandMarquee: React.FC = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
