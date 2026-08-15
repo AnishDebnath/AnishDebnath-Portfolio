@@ -170,7 +170,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     featured: false,
     coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
     author: {
-      name: 'David Antony',
+      name: 'Anish Debnath',
       role: 'UI/UX Designer',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
     },
@@ -194,7 +194,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     featured: false,
     coverImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
     author: {
-      name: 'David Antony',
+      name: 'Anish Debnath',
       role: 'UI/UX Designer',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
     },
@@ -218,7 +218,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     featured: true,
     coverImage: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80',
     author: {
-      name: 'David Antony',
+      name: 'Anish Debnath',
       role: 'UI/UX Designer',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
     },
@@ -272,7 +272,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     featured: false,
     coverImage: 'https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=1200&q=80',
     author: {
-      name: 'David Antony',
+      name: 'Anish Debnath',
       role: 'UI/UX Designer',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
     },

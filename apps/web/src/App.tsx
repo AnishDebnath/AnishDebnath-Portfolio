@@ -1,25 +1,95 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { PageRoute } from './types';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { AppleHelloIntro } from './components/AppleHelloIntro';
+import { Header } from './components/common/Header';
+import { Footer } from './components/common/Footer';
+import { Intro } from './components/common/Intro';
 import { ComingSoonPage } from './pages/coming-soon';
-import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { ResumePage } from './pages/ResumePage';
-import { CaseStudyListPage } from './pages/CaseStudyListPage';
-import { CaseStudyDetailPage } from './pages/CaseStudyDetailPage';
-import { JournalListPage } from './pages/JournalListPage';
-import { JournalDetailPage } from './pages/JournalDetailPage';
-import { ContactPage } from './pages/ContactPage';
-import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
-import { TermsOfServicePage } from './pages/TermsOfServicePage';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { HomePage } from './pages/home';
+import { AboutPage } from './pages/about';
+import { ResumePage } from './pages/resume';
+import { CaseStudyListPage } from './pages/case-study-list';
+import { CaseStudyDetailPage } from './pages/case-study-detail';
+import { JournalListPage } from './pages/journal-list';
+import { JournalDetailPage } from './pages/journal-detail';
+import { ContactPage } from './pages/contact';
+import { PrivacyPolicyPage } from './pages/privacy-policy';
+import { TermsOfServicePage } from './pages/terms-of-service';
+import { NotFoundPage } from './pages/not-found';
+
+interface RouteState {
+  route: PageRoute;
+  detailId?: string;
+}
+
+const parsePath = (pathname: string): RouteState => {
+  const segments = pathname.split('/').filter(Boolean);
+
+  if (segments.length === 0) {
+    return { route: 'coming-soon' };
+  }
+
+  switch (segments[0]) {
+    case 'home':
+      return { route: 'home' };
+    case 'about':
+      return { route: 'about' };
+    case 'resume':
+      return { route: 'resume' };
+    case 'case-study':
+      return segments[1] ? { route: 'case-study-detail', detailId: segments[1] } : { route: 'case-study' };
+    case 'journal':
+      return segments[1] ? { route: 'journal-detail', detailId: segments[1] } : { route: 'journal' };
+    case 'contact':
+      return { route: 'contact' };
+    case 'privacy-policy':
+      return { route: 'privacy-policy' };
+    case 'terms-of-service':
+      return { route: 'terms-of-service' };
+    default:
+      return { route: '404' };
+  }
+};
+
+const buildPath = (route: PageRoute, detailId?: string): string => {
+  switch (route) {
+    case 'coming-soon':
+      return '/';
+    case 'home':
+      return '/home';
+    case 'about':
+      return '/about';
+    case 'resume':
+      return '/resume';
+    case 'case-study':
+      return '/case-study';
+    case 'case-study-detail':
+      return detailId ? `/case-study/${detailId}` : '/case-study';
+    case 'journal':
+      return '/journal';
+    case 'journal-detail':
+      return detailId ? `/journal/${detailId}` : '/journal';
+    case 'contact':
+      return '/contact';
+    case 'privacy-policy':
+      return '/privacy-policy';
+    case 'terms-of-service':
+      return '/terms-of-service';
+    case '404':
+      return '/404';
+    default:
+      return '/';
+  }
+};
 
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState<PageRoute>('coming-soon');
-  const [detailId, setDetailId] = useState<string | undefined>(undefined);
-  const [showIntro, setShowIntro] = useState<boolean>(true);
+  const [currentRoute, setCurrentRoute] = useState<PageRoute>(() => parsePath(window.location.pathname).route);
+  const [detailId, setDetailId] = useState<string | undefined>(() => parsePath(window.location.pathname).detailId);
+  const [showIntro, setShowIntro] = useState<boolean>(() => {
+    // Play intro only on initial load (site open) or manual refresh.
+    // Skip when restored from bfcache/back-forward so it never replays mid-session.
+    const navType = (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined)?.type;
+    return navType === undefined || navType === 'navigate' || navType === 'reload';
+  });
 
   useEffect(() => {
     if (showIntro) {
@@ -32,11 +102,28 @@ export default function App() {
     };
   }, [showIntro]);
 
-  const handleNavigate = (route: PageRoute, id?: string) => {
+  // Sync state when user presses browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      const { route, detailId: id } = parsePath(window.location.pathname);
+      setCurrentRoute(route);
+      setDetailId(id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const handleNavigate = useCallback((route: PageRoute, id?: string) => {
+    const path = buildPath(route, id);
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
     setCurrentRoute(route);
     setDetailId(id);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, []);
 
   const handleIntroComplete = () => {
     setShowIntro(false);
@@ -78,7 +165,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#f5f5f5] text-[#0d130d] font-sans antialiased selection:bg-[#e74723] selection:text-white">
       {/* Apple-style Iconic Hello Splash Intro */}
-      {showIntro && <AppleHelloIntro onComplete={handleIntroComplete} />}
+      {showIntro && <Intro onComplete={handleIntroComplete} />}
 
       {/* Site content mounts only AFTER intro finishes, so the page's initial
           entrance animations play fresh instead of finishing behind the overlay */}

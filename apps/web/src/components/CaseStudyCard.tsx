@@ -1,6 +1,7 @@
 import React from 'react';
 import { CaseStudy } from '../types';
 import { DarkButton } from './DarkButton';
+import { DEFAULT_BG_COLORS } from '../data/caseStudyCardData';
 
 interface CaseStudyCardProps {
   project: CaseStudy;
@@ -9,15 +10,7 @@ interface CaseStudyCardProps {
 }
 
 export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ project, onNavigate, index = 0 }) => {
-  // Preset theme icon backgrounds matching the website design
-  const defaultBgColors = [
-    'bg-[#e6c820]', // Warm Yellow
-    'bg-[#f2512d]', // Theme Orange
-    'bg-[#1fc932]', // Energetic Green
-    'bg-[#3b82f6]', // Ocean Blue
-  ];
-
-  const iconBgClass = project.iconBg || defaultBgColors[index % defaultBgColors.length];
+  const iconBgClass = project.iconBg || DEFAULT_BG_COLORS[index % DEFAULT_BG_COLORS.length];
 
   // Alternating layout direction: even index = Info left, Image right; odd index = Image left, Info right
   const isReversed = index % 2 !== 0;
