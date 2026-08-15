@@ -5,11 +5,15 @@ import gconnect from '../../assets/brand-logo/gconnect.png';
 import gold from '../../assets/brand-logo/gold.png';
 import charu from '../../assets/brand-logo/charu.png';
 import crh from '../../assets/brand-logo/crh.png';
+import r1 from '../../assets/brand-logo/r1.png';
+import qba from '../../assets/brand-logo/qba.png';
+import openhome from '../../assets/brand-logo/openhome.png';
+import logix from '../../assets/brand-logo/logix.png';
 
 export const BrandMarquee: React.FC = () => {
-  const brandLogos = [mm, tph, gconnect, gold, charu, crh];
+  const brandLogos = [qba, logix, openhome, tph, charu, mm, gold, crh, r1, gconnect];
 
-  const marqueeList = [...brandLogos, ...brandLogos];
+  const marqueeList = [...brandLogos, ...brandLogos, ...brandLogos];
 
   return (
     <section className="py-8 sm:py-12 bg-[#f5f5f5] text-[#0d130d] overflow-hidden relative">
