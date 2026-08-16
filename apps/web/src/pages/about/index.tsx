@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageRoute } from '../../types';
 import { TechnologiesSection } from './Technologies';
-import { WorkProcessSection } from '../../components/WorkProcessSection';
+import { WorkProcessSection } from '../../components/ui/WorkProcess';
 import { StudySection } from './Study';
 import { FaqSection } from '../../components/FaqSection';
 import { CtaBanner } from '../../components/CtaBanner';

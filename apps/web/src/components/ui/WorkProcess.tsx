@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { SectionHeader } from './common/SectionHeader';
-import { Search, Palette, Code2, Rocket, CheckCircle2, Clock, Sparkles, Users, Lightbulb, Compass, Terminal } from 'lucide-react';
+import { SectionHeader } from '../common/SectionHeader';
+import { CheckCircle2, Clock, Sparkles, Users, Lightbulb, Terminal, Rocket } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { PageRoute } from '../types';
+import { PageRoute } from '../../types';
 
 interface WorkProcessSectionProps {
   onNavigate?: (route: PageRoute) => void;
@@ -13,12 +13,10 @@ interface ProcessStep {
   number: string;
   tag: string;
   title: string;
-  shortDesc: string;
   duration: string;
   icon: React.ReactNode;
   description: string;
   deliverables: string[];
-  highlight: string;
 }
 
 export const WorkProcessSection: React.FC<WorkProcessSectionProps> = ({ className = '' }) => {
@@ -32,45 +30,37 @@ export const WorkProcessSection: React.FC<WorkProcessSectionProps> = ({ classNam
       number: '01',
       tag: 'DISCOVERY',
       title: 'Discovery',
-      shortDesc: 'We start by understanding your goals, audience, brand needs, and the direction your project should take.',
-      duration: '3–5 Days',
+      duration: '2–3 Days',
       icon: <Users className="w-4 h-4 text-[#0d130d]" />,
       description: 'Understanding your business goals, target audience, and market positioning. We define the project roadmap, sitemap, wireframes, and core requirements before writing a single line of code.',
-      deliverables: ['Project Scope & Roadmap', 'UX Wireframes & Flow', 'Competitive Analysis', 'Content Architecture'],
-      highlight: '100% alignment before design starts'
+      deliverables: ['Project Scope & Roadmap', 'UX Wireframes & Flow', 'Competitive Analysis', 'Content Architecture']
     },
     {
       number: '02',
       tag: 'STRATEGY',
       title: 'Strategy & Design',
-      shortDesc: 'I define the structure, message, and creative approach before moving into the visual design stage.',
       duration: '1–2 Weeks',
       icon: <Lightbulb className="w-4 h-4 text-[#0d130d]" />,
       description: 'Crafting high-fidelity visual interfaces, bespoke typography scales, micro-interactions, and a cohesive design system in Figma. You get interactive prototypes to preview and test early.',
-      deliverables: ['High-Fidelity UI Screens', 'Figma Design System', 'Interactive Prototype', 'Responsive Layouts'],
-      highlight: 'Pixel-perfect & component-driven'
+      deliverables: ['High-Fidelity UI Screens', 'Figma Design System', 'Interactive Prototype', 'Responsive Layouts']
     },
     {
       number: '03',
       tag: 'DIRECTION',
       title: 'Development & Build',
-      shortDesc: 'A clear visual direction is shaped into production-ready code with responsive, fast-loading layouts.',
       duration: '1–2 Weeks',
       icon: <Terminal className="w-4 h-4 text-[#0d130d]" />,
       description: 'Translating designs into clean, production-ready code using React, Next.js, and Tailwind CSS. Built with modular components, smooth animations, SEO best practices, and fast load speeds.',
-      deliverables: ['Clean React & Tailwind Code', 'Fully Responsive Web App', 'Smooth Micro-Animations', 'SEO & Speed Tuning'],
-      highlight: '95+ Lighthouse speed score'
+      deliverables: ['Clean React & Tailwind Code', 'Fully Responsive Web App', 'Smooth Micro-Animations', 'SEO & Speed Tuning']
     },
     {
       number: '04',
       tag: 'LAUNCH',
       title: 'Launch & Delivery',
-      shortDesc: 'Final QA testing, deployment to your live server, domain setup, and seamless handoff support.',
       duration: '2–3 Days',
       icon: <Rocket className="w-4 h-4 text-[#0d130d]" />,
       description: 'Comprehensive cross-device testing, performance audits, and accessibility checks. Seamless deployment to production with full handoff documentation and 30-day post-launch support.',
-      deliverables: ['Cross-Browser QA Audit', 'Production Deployment', 'Component Handoff', '30-Day Post-Launch Support'],
-      highlight: 'Zero-downtime deployment'
+      deliverables: ['Cross-Browser QA Audit', 'Production Deployment', 'Component Handoff', '30-Day Post-Launch Support']
     }
   ];
 
@@ -152,8 +142,8 @@ export const WorkProcessSection: React.FC<WorkProcessSectionProps> = ({ classNam
           >
             {/* Section Header */}
             <SectionHeader
-              title="WORK PROCESS"
-              subtitle="A clear, battle-tested 4-step workflow designed to take your idea from concept to launch with speed, clarity, and precision."
+              title="How It Works"
+              subtitle="A clear, collaborative workflow from first idea to polished result."
               dark={false}
               icon={
                 <Sparkles className="w-6 h-6 stroke-[2.2]" />
@@ -183,8 +173,12 @@ export const WorkProcessSection: React.FC<WorkProcessSectionProps> = ({ classNam
                 {steps.map((step, idx) => {
                   const isActive = activeStep === idx;
                   return (
-                    <button
+                    <motion.button
                       key={step.number}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.1 }}
                       onClick={() => handleStepClick(idx)}
                       className={`w-full text-left transition-all duration-300 cursor-pointer relative z-10 flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-2xl border ${isActive
                         ? 'bg-white text-[#0d130d] border-neutral-300 shadow-sm scale-[1.01]'
@@ -223,13 +217,19 @@ export const WorkProcessSection: React.FC<WorkProcessSectionProps> = ({ classNam
                           {step.duration}
                         </span>
                       </div>
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
 
               {/* RIGHT SIDE: ANIMATED DETAILS CARD (THEME ALIGNED, BALANCED PROPORTIONS) */}
-              <div className="lg:col-span-7 bg-white rounded-[24px] p-6 sm:p-8 lg:p-9 border border-neutral-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden min-h-[300px]">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
+                className="lg:col-span-7 bg-white rounded-[24px] p-6 sm:p-8 lg:p-9 border border-neutral-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden min-h-[300px]"
+              >
 
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -284,7 +284,7 @@ export const WorkProcessSection: React.FC<WorkProcessSectionProps> = ({ classNam
                   </motion.div>
                 </AnimatePresence>
 
-              </div>
+              </motion.div>
 
             </div>
 

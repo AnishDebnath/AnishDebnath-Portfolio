@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageRoute } from '../../types';
 import { CapabilitiesSection } from './Capabilities';
-import { WorkProcessSection } from '../../components/WorkProcessSection';
+import { WorkProcessSection } from '../../components/ui/WorkProcess';
 import { BrandMarquee } from './BrandMarquee';
 import { NowWorkingOnSection } from './NowWorkingOn';
 import { TestimonialsSection } from './Testimonials';
