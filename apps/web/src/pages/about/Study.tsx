@@ -13,17 +13,17 @@ export const StudySection: React.FC = () => {
       </div>
 
       <div className="max-w-[980px] mx-auto px-4 sm:px-6 relative z-10">
-        
+
         {/* Section Header */}
         <SectionHeader
-          title="STUDY & EDUCATION"
+          title="EDUCATION"
           subtitle="Academic foundation, specialized certifications, and ongoing design research."
           dark={true}
           icon={
             <svg className="w-6 h-6 stroke-[2.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M12 14l9-5-9-5-9 5 9 5z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M22 10v6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 14l9-5-9-5-9 5 9 5z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M22 10v6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           }
         />
@@ -43,39 +43,63 @@ export const StudySection: React.FC = () => {
             <motion.div
               key={study.id}
               variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.12 } },
               }}
-              className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${
-                index < STUDY_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
-              }`}
+              className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${index < STUDY_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
+                }`}
             >
               {/* Left: Degree & Institution */}
-              <div className="md:col-span-5">
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -24 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                }}
+                className="md:col-span-5"
+              >
                 <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
                   {study.degree} — {study.institution}
                 </h3>
                 <span className="font-sans font-medium text-sm text-[#e74723] block mt-1">
                   {study.period}
                 </span>
-              </div>
+              </motion.div>
 
               {/* Right: Description Bullets & Image Cards Grid */}
-              <div className="md:col-span-7">
-                <ul className="space-y-3 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed">
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: 24 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                }}
+                className="md:col-span-7"
+              >
+                <motion.ul
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.1 } },
+                  }}
+                  className="space-y-3 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed"
+                >
                   {study.bullets.map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
+                    <motion.li
+                      key={idx}
+                      variants={{
+                        hidden: { opacity: 0, x: 20 },
+                        visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                      }}
+                      className="flex items-start gap-2.5"
+                    >
                       <span className="text-neutral-500 shrink-0">•</span>
                       <span>{bullet}</span>
-                    </li>
+                    </motion.li>
                   ))}
-                </ul>
+                </motion.ul>
 
                 {/* Image side by side boxes */}
                 <div className="mt-5 max-w-xl grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {study.images.map((img, i) => (
-                    <div 
-                      key={i} 
+                    <div
+                      key={i}
                       className="group relative rounded-xl overflow-hidden border border-neutral-800/90 bg-[#121812] aspect-[4/3] shadow-xs"
                     >
                       <img
@@ -91,7 +115,7 @@ export const StudySection: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

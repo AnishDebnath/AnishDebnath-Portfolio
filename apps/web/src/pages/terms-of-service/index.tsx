@@ -24,9 +24,6 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onNaviga
                 {/* Content Container */}
                 <TermsContent />
 
-                {/* FAQ Section */}
-                <FaqSection className="pt-12 sm:pt-16" />
-
                 {/* CTA Banner */}
                 <div className="mt-12 sm:mt-16">
                     <CtaBanner onNavigate={onNavigate} />

@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { FaqSection } from '../../components/common/faq';
@@ -12,13 +13,18 @@ interface JournalListPageProps {
 
 export const JournalListPage: React.FC<JournalListPageProps> = ({ onNavigate }) => {
     return (
-        <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] pt-6 sm:pt-10 pb-20 select-none">
+        <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="min-h-screen bg-[#f5f5f5] text-[#0d130d] pt-6 sm:pt-10 pb-20 select-none"
+        >
             <div className="max-w-[1085px] mx-auto px-4 sm:px-6">
 
                 {/* Section Header */}
                 <SectionHeader
                     title="CASE STUDY"
-                    subtitle="Thoughts, lessons, and behind-the-scenes insights from my design journey."
+                    subtitle="Ideas and practical insights on design, websites, creative direction, and digital craft."
                     icon={<BookOpen className="w-6 h-6 stroke-[2.2]" />}
                 />
 
@@ -32,6 +38,6 @@ export const JournalListPage: React.FC<JournalListPageProps> = ({ onNavigate }) 
                 <CtaBanner onNavigate={onNavigate} />
 
             </div>
-        </main>
+        </motion.main>
     );
 };

@@ -26,8 +26,20 @@ export const Showcase: React.FC<ShowcaseProps> = ({ downloadSuccess, onDownload,
                     >
 
                         <div className="space-y-6">
+                            <motion.div
+                                variants={{
+                                    hidden: {},
+                                    visible: { transition: { staggerChildren: 0.08 } },
+                                }}
+                                className="space-y-6"
+                            >
                             {/* Heading */}
-                            <div>
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, y: 16 },
+                                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                                }}
+                            >
                                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0d130d] font-display leading-[1.12]">
                                     Resume of <br />
                                     <span className="text-[#f2512d]">
@@ -37,10 +49,16 @@ export const Showcase: React.FC<ShowcaseProps> = ({ downloadSuccess, onDownload,
                                 <p className="text-neutral-700 text-xs sm:text-sm leading-relaxed font-sans mt-4">
                                     Full-stack developer focused on building production-ready web applications with clean frontend experiences, secure backend APIs, and practical database performance improvements.
                                 </p>
-                            </div>
+                            </motion.div>
 
                             {/* 2x2 Meta Information Cards */}
-                            <div className="grid grid-cols-2 gap-3">
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, y: 16 },
+                                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                                }}
+                                className="grid grid-cols-2 gap-3"
+                            >
                                 <div className="bg-[#f5f2eb] border border-neutral-200/80 rounded-2xl p-3.5 sm:p-4 hover:border-[#f2512d]/50 transition-colors">
                                     <span className="text-[11px] text-neutral-500 font-mono block uppercase tracking-wider mb-1">Role</span>
                                     <span className="text-xs sm:text-sm font-bold text-[#0d130d] block">Full Stack Developer</span>
@@ -60,10 +78,16 @@ export const Showcase: React.FC<ShowcaseProps> = ({ downloadSuccess, onDownload,
                                     <span className="text-[11px] text-neutral-500 font-mono block uppercase tracking-wider mb-1">Availability</span>
                                     <span className="text-xs sm:text-sm font-bold text-[#0d130d] block">Full-time / Freelance</span>
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* Downloadable PDF File Card */}
-                            <div className="bg-[#f5f2eb] border border-neutral-200/80 rounded-2xl p-4 sm:p-5 flex items-center gap-4 relative overflow-hidden group">
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, y: 16 },
+                                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                                }}
+                                className="bg-[#f5f2eb] border border-neutral-200/80 rounded-2xl p-4 sm:p-5 flex items-center gap-4 relative overflow-hidden group"
+                            >
                                 <div className="w-11 h-11 rounded-2xl bg-[#f2512d]/10 border border-[#f2512d]/30 text-[#f2512d] flex items-center justify-center shrink-0">
                                     <FileText className="w-5 h-5" />
                                 </div>
@@ -76,11 +100,18 @@ export const Showcase: React.FC<ShowcaseProps> = ({ downloadSuccess, onDownload,
                                         Updated April 28, 2026 · v3
                                     </p>
                                 </div>
-                            </div>
+                            </motion.div>
+                            </motion.div>
                         </div>
 
                         {/* Action Buttons in Single Row */}
-                        <div className="pt-2">
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
+                            className="pt-2"
+                        >
                             <div className="flex flex-row items-center gap-3 w-full">
                                 <button
                                     onClick={onDownload}
@@ -109,7 +140,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({ downloadSuccess, onDownload,
                                     <span>Open File</span>
                                 </button>
                             </div>
-                        </div>
+                        </motion.div>
 
                     </motion.div>
 

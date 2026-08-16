@@ -67,37 +67,62 @@ export const Experience: React.FC = () => {
                         <motion.div
                             key={exp.id}
                             variants={{
-                                hidden: { opacity: 0, y: 40 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                                hidden: {},
+                                visible: { transition: { staggerChildren: 0.12 } },
                             }}
                             className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${index < EXPERIENCE_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
                                 }`}
                         >
                             {/* Left: Role & Company */}
-                            <div className="md:col-span-5">
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, x: -24 },
+                                    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                                }}
+                                className="md:col-span-5"
+                            >
                                 <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
                                     {exp.role} — {exp.company}
                                 </h3>
                                 <span className="font-sans font-medium text-sm text-[#e74723] block mt-1">
                                     {exp.period}
                                 </span>
-                            </div>
+                            </motion.div>
 
                             {/* Right: Description & Image Slide */}
-                            <div className="md:col-span-7">
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, x: 24 },
+                                    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                                }}
+                                className="md:col-span-7"
+                            >
                                 {/* Description Bullets */}
-                                <ul className="space-y-3 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed">
+                                <motion.ul
+                                    variants={{
+                                        hidden: {},
+                                        visible: { transition: { staggerChildren: 0.1 } },
+                                    }}
+                                    className="space-y-3 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed"
+                                >
                                     {exp.bullets.map((bullet, idx) => (
-                                        <li key={idx} className="flex items-start gap-2.5">
+                                        <motion.li
+                                            key={idx}
+                                            variants={{
+                                                hidden: { opacity: 0, x: 20 },
+                                                visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+                                            }}
+                                            className="flex items-start gap-2.5"
+                                        >
                                             <span className="text-neutral-500 shrink-0">•</span>
                                             <span>{bullet}</span>
-                                        </li>
+                                        </motion.li>
                                     ))}
-                                </ul>
+                                </motion.ul>
 
                                 {/* Image side by side boxes right after description */}
                                 <ExperienceImageGrid images={exp.images} />
-                            </div>
+                            </motion.div>
                         </motion.div>
                     ))}
                 </motion.div>

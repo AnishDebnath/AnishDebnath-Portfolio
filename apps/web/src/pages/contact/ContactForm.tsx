@@ -45,7 +45,7 @@ export const ContactForm: React.FC = () => {
 
                 {/* Content without bold font effect */}
                 <h2 className="font-display font-normal text-2xl sm:text-3xl uppercase tracking-tight text-[#f2512d] leading-tight relative z-10 mb-6">
-                    SPARK CREATIVITY FOR YOUR UPCOMING PROJECT.
+                    Let's talk about your next project
                 </h2>
             </motion.div>
 

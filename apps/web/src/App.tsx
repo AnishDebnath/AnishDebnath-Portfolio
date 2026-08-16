@@ -15,7 +15,7 @@ import { JournalDetailPage } from './pages/case-study-details';
 import { ContactPage } from './pages/contact';
 import { PrivacyPolicyPage } from './pages/privacy-policy';
 import { TermsOfServicePage } from './pages/terms-of-service';
-import { NotFoundPage } from './pages/not-found';
+import { NotFoundPage } from './pages/404';
 
 interface RouteState {
   route: PageRoute;

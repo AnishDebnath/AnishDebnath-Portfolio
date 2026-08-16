@@ -80,7 +80,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onNavigat
       {/* Info Card (Separate card with all 4 corners rounded) — slides from image side */}
       <motion.div
         variants={{
-          hidden: { opacity: 0, x: isReversed ? -250 : 250 },
+          hidden: { opacity: 0, x: isReversed ? -30 : 30 },
           visible: {
             opacity: 1,
             x: 0,
