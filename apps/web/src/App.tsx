@@ -85,10 +85,10 @@ export default function App() {
   const [currentRoute, setCurrentRoute] = useState<PageRoute>(() => parsePath(window.location.pathname).route);
   const [detailId, setDetailId] = useState<string | undefined>(() => parsePath(window.location.pathname).detailId);
   const [showIntro, setShowIntro] = useState<boolean>(() => {
-    // Play intro only on initial load (site open) or manual refresh.
-    // Skip when restored from bfcache/back-forward so it never replays mid-session.
+    // Play intro only on fresh site open (navigate). Skip on reload so the
+    // user lands straight back in their section, and skip on back/forward.
     const navType = (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined)?.type;
-    return navType === undefined || navType === 'navigate' || navType === 'reload';
+    return navType === undefined || navType === 'navigate';
   });
 
   useEffect(() => {
@@ -100,6 +100,25 @@ export default function App() {
     return () => {
       document.body.style.overflow = 'unset';
     };
+  }, [showIntro]);
+
+  // Save scroll position before unload, then restore after reload so the
+  // user stays on the section they were viewing.
+  useEffect(() => {
+    const saveScroll = () => {
+      sessionStorage.setItem('portfolio-scroll', String(window.scrollY));
+    };
+    window.addEventListener('beforeunload', saveScroll);
+    return () => window.removeEventListener('beforeunload', saveScroll);
+  }, []);
+
+  useEffect(() => {
+    if (showIntro) return;
+    const saved = sessionStorage.getItem('portfolio-scroll');
+    if (saved) {
+      sessionStorage.removeItem('portfolio-scroll');
+      requestAnimationFrame(() => window.scrollTo(0, parseInt(saved, 10)));
+    }
   }, [showIntro]);
 
   // Sync state when user presses browser back/forward buttons
