@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { MotionConfig } from 'motion/react';
 import { PageRoute } from './types';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';
@@ -182,7 +183,11 @@ export default function App() {
   const isComingSoon = currentRoute === 'coming-soon';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f5f5] text-[#0d130d] font-sans antialiased selection:bg-[#e74723] selection:text-white">
+    <MotionConfig
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      reducedMotion="user"
+    >
+      <div className="min-h-screen flex flex-col bg-[#f5f5f5] text-[#0d130d] font-sans antialiased selection:bg-[#e74723] selection:text-white">
       {/* Apple-style Iconic Hello Splash Intro */}
       {showIntro && <Intro onComplete={handleIntroComplete} />}
 
@@ -202,6 +207,7 @@ export default function App() {
           {!isComingSoon && <Footer activeRoute={currentRoute} onNavigate={handleNavigate} />}
         </>
       )}
-    </div>
+      </div>
+    </MotionConfig>
   );
 }

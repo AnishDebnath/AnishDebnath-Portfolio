@@ -11,6 +11,7 @@ export interface ActiveProject {
   title: string;
   subtitle: string;
   status: 'In Progress' | 'Completed';
+  year: string;
   description: string;
   tags: string[];
   completion: number;
@@ -25,6 +26,7 @@ export const ACTIVE_PROJECTS: ActiveProject[] = [
     title: 'Luxina - Brand Studio Template',
     subtitle: 'Creative Agency Ecosystem',
     status: 'In Progress',
+    year: '2026',
     description: "I'm designing Luxina, a bold and expressive template for creatives and agencies. It's made to help showcase work in a strong, visual way. Right now, I'm fine-tuning the layout and adding smooth animations.",
     tags: ['Framer', 'React', 'Motion', 'Tailwind'],
     completion: 80,
@@ -95,6 +97,7 @@ export const ACTIVE_PROJECTS: ActiveProject[] = [
     title: 'Luzia - Free Portfolio Template',
     subtitle: 'Minimalist Portfolio System',
     status: 'Completed',
+    year: '2025',
     description: "I'm updating Luzia, my free minimal portfolio template. It's built for creatives who like clean and simple design. I'm improving a few sections to make it easier to use and more flexible.",
     tags: ['React', 'TypeScript', 'Tailwind', 'Vite'],
     completion: 100,

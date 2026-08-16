@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { SectionHeader } from '../common/SectionHeader';
-import { MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
+import { MessageSquare, ChevronDown } from 'lucide-react';
 import { DEFAULT_FAQ_DATA } from '../../data/faq';
 
 interface FaqSectionProps {
@@ -74,15 +74,33 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ className = '', darkThem
                   </span>
                   <div className="flex items-center gap-1.5 shrink-0 text-xs font-sans font-medium text-[#f2512d]">
                     <span>{isOpen ? 'Collapse' : 'Expand'}</span>
-                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.4, ease: 'easeInOut' }}
+                      className="inline-flex"
+                    >
+                      <ChevronDown className="w-4 h-4" />
+                    </motion.span>
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className={`px-5 sm:px-6 pb-6 pt-0 font-sans text-sm sm:text-base leading-relaxed ${darkTheme ? 'text-neutral-300' : 'text-neutral-700'}`}>
-                    {faq.answer}
-                  </div>
-                )}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ gridTemplateRows: '0fr', opacity: 0 }}
+                      animate={{ gridTemplateRows: '1fr', opacity: 1 }}
+                      exit={{ gridTemplateRows: '0fr', opacity: 0 }}
+                      transition={{ duration: 0.4, ease: 'easeInOut' }}
+                      className="grid"
+                    >
+                      <div className="overflow-hidden min-h-0">
+                        <div className={`px-5 sm:px-6 pb-6 pt-0 font-sans text-sm sm:text-base leading-relaxed ${darkTheme ? 'text-neutral-300' : 'text-neutral-700'}`}>
+                          {faq.answer}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             );
           })}

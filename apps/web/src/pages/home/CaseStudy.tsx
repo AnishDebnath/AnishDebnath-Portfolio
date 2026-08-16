@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { JOURNAL_ARTICLES } from '../../data/case-study';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { JournalCard } from '../../components/ui/JournalCard';
+import { JournalCard } from '../../components/product/JournalCard';
 
 interface CaseStudySectionProps {
     onNavigate: (route: PageRoute, detailId?: string) => void;

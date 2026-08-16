@@ -2,7 +2,7 @@
 import { motion } from 'motion/react';
 import { CaseStudy, PageRoute } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { CaseStudyCard } from '../../components/ui/CaseStudyCard';
+import { CaseStudyCard } from '../../components/product/CaseStudyCard';
 
 interface MoreProjectsSectionProps {
     otherProjects: CaseStudy[];

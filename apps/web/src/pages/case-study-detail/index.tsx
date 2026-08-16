@@ -1,8 +1,8 @@
 ﻿import React, { useEffect } from 'react';
 import { PageRoute } from '../../types';
 import { CASE_STUDIES } from '../../data/portfolio';
-import { FaqSection } from '../../components/ui/FaqSection';
-import { CtaBanner } from '../../components/ui/CtaBanner';
+import { FaqSection } from '../../components/common/faq';
+import { CtaBanner } from '../../components/common/cta';
 import { HeaderSection } from './Header';
 import { ChallengesSection } from './Challenges';
 import { ShowcaseBanner } from './ShowcaseBanner';

@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { CaseStudy } from '../../types';
-import { DarkButton } from './DarkButton';
+import { DarkButton } from '../ui/DarkButton';
 
 const DEFAULT_BG_COLORS = [
   'bg-[#e6c820]', // Warm Yellow

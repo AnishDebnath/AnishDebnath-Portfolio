@@ -1,8 +1,8 @@
 ﻿import React from 'react';
 import { PageRoute } from '../../types';
 import { JOURNAL_ARTICLES } from '../../data/case-study';
-import { FaqSection } from '../../components/ui/FaqSection';
-import { CtaBanner } from '../../components/ui/CtaBanner';
+import { FaqSection } from '../../components/common/faq';
+import { CtaBanner } from '../../components/common/cta';
 import { TitleBand } from './TitleBand';
 import { MetaBar } from './MetaBar';
 import { HeroImage } from './HeroImage';

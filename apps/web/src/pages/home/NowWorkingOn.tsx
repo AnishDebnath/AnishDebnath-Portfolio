@@ -112,7 +112,7 @@ export const NowWorkingOnSection: React.FC<NowWorkingOnSectionProps> = ({ darkTh
                       )}
 
                       <span className="text-xs font-mono-tag font-bold text-neutral-400 tracking-wider">
-                        2026
+                        // {project.year}
                       </span>
                     </div>
 

@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import { motion } from 'motion/react';
+﻿import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'motion/react';
 import { PageRoute } from '../../types';
 import { MessageSquare, Clock, Calendar, Star, Zap, CheckCircle2 } from 'lucide-react';
 
@@ -7,6 +7,33 @@ interface CtaBannerProps {
   onNavigate: (route: PageRoute, detailId?: string) => void;
   className?: string;
 }
+
+const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const [chars, setChars] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const interval = setInterval(() => {
+      setChars((prev) => {
+        if (prev >= text.length) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 60);
+    return () => clearInterval(interval);
+  }, [inView, text]);
+
+  return (
+    <span ref={ref}>
+      {text.slice(0, chars)}
+      {chars < text.length && <span className="inline-block w-[2px] h-[1em] align-middle bg-current ml-0.5 animate-pulse" />}
+    </span>
+  );
+};
 
 export const CtaBanner: React.FC<CtaBannerProps> = ({ onNavigate, className = '' }) => {
   return (
@@ -102,7 +129,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onNavigate, className = ''
               className="lg:col-span-6 flex flex-col items-center text-center px-2 sm:px-4 order-1 lg:order-2 my-4 sm:my-6 relative z-20"
             >
               <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-[#0d130d] leading-[1.12] mb-6 max-w-md">
-                LET'S BUILD SOMETHING<br className="hidden sm:inline" /> GREAT TOGETHER
+                <TypewriterText text="LET'S BUILD SOMETHING GREAT TOGETHER" />
               </h2>
 
               {/* Book a Call Button (Exact matching style to Navbar "Let's Talk" button) */}

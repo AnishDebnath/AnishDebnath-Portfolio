@@ -2,7 +2,7 @@
 import { motion } from 'motion/react';
 import { JournalArticle, PageRoute } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { JournalCard } from '../../components/ui/JournalCard';
+import { JournalCard } from '../../components/product/JournalCard';
 import { BookOpen } from 'lucide-react';
 
 interface MoreArticlesSectionProps {
