@@ -1,6 +1,6 @@
-import { JournalArticle } from '../../types';
+import { CaseStudyArticle } from '../../types';
 
-export const designingForConversion: JournalArticle = {
+export const designingForConversion: CaseStudyArticle = {
   id: 'designing-for-conversion',
   title: 'Designing for Conversion: Turning Visitors into Loyal Users',
   excerpt: 'A practical guide to visual hierarchy, user journey mapping, and persuasive microcopy that elevates conversion rates.',

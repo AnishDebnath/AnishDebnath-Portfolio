@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { CASE_STUDIES } from '../../data/portfolio';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { CaseStudyCard } from '../../components/product/CaseStudyCard';
+import { PortfolioCard } from '../../components/product/PortfolioCard';
 
 interface PortfolioSectionProps {
     onNavigate: (route: PageRoute, detailId?: string) => void;
@@ -46,7 +46,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onNavigate }
                                 zIndex: index + 1
                             }}
                         >
-                            <CaseStudyCard
+                            <PortfolioCard
                                 project={project}
                                 index={index}
                                 onNavigate={onNavigate}

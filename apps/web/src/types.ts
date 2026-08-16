@@ -1,12 +1,12 @@
-export type PageRoute = 
+﻿export type PageRoute = 
   | 'coming-soon'
   | 'home'
   | 'about'
   | 'resume'
+  | 'portfolio'
+  | 'portfolio-detail'
   | 'case-study'
   | 'case-study-detail'
-  | 'journal'
-  | 'journal-detail'
   | 'contact'
   | 'privacy-policy'
   | 'terms-of-service'
@@ -53,7 +53,7 @@ export type CaseStudyDetail = Pick<CaseStudy,
   | 'services' | 'liveUrl' | 'nextProjectId'
 >;
 
-export interface JournalArticle {
+export interface CaseStudyArticle {
   id: string;
   title: string;
   excerpt: string;

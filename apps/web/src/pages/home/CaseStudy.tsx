@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
-import { JOURNAL_ARTICLES } from '../../data/case-study';
+import { CASE_STUDY_ARTICLES } from '../../data/case-study';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { JournalCard } from '../../components/product/JournalCard';
+import { CaseStudyCard } from '../../components/product/CaseStudyCard';
 
 interface CaseStudySectionProps {
     onNavigate: (route: PageRoute, detailId?: string) => void;
@@ -36,7 +36,7 @@ export const CaseStudySection: React.FC<CaseStudySectionProps> = ({ onNavigate }
                     }}
                     className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mt-8 sm:mt-12"
                 >
-                    {JOURNAL_ARTICLES.slice(0, 2).map((article, idx) => (
+                    {CASE_STUDY_ARTICLES.slice(0, 2).map((article, idx) => (
                         <motion.div
                             key={article.id}
                             variants={{
@@ -44,7 +44,7 @@ export const CaseStudySection: React.FC<CaseStudySectionProps> = ({ onNavigate }
                                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
                             }}
                         >
-                            <JournalCard
+                            <CaseStudyCard
                                 article={article}
                                 darkTheme={true}
                                 onNavigate={(route, id) => onNavigate(route, id)}

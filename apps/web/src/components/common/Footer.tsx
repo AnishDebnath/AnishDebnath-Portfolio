@@ -11,8 +11,8 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
   const isHomeActive = activeRoute === 'home';
   const isAboutActive = activeRoute === 'about';
   const isResumeActive = activeRoute === 'resume';
-  const isCaseStudyActive = activeRoute === 'case-study' || activeRoute === 'case-study-detail';
-  const isJournalActive = activeRoute === 'journal' || activeRoute === 'journal-detail';
+  const isCaseStudyActive = activeRoute === 'portfolio' || activeRoute === 'portfolio-detail';
+  const isJournalActive = activeRoute === 'case-study' || activeRoute === 'case-study-detail';
   const isContactActive = activeRoute === 'contact';
 
   const isPrivacyActive = activeRoute === 'privacy-policy';
@@ -120,15 +120,15 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
             </button>
             <span className="text-neutral-600 text-xs font-black select-none">•</span>
             <button
-              onClick={() => onNavigate('case-study')}
+              onClick={() => onNavigate('portfolio')}
               className={`transition-colors cursor-pointer ${isCaseStudyActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
                 }`}
             >
-              Portfolio
+Portfolio
             </button>
             <span className="text-neutral-600 text-xs font-black select-none">•</span>
             <button
-              onClick={() => onNavigate('journal')}
+              onClick={() => onNavigate('case-study')}
               className={`transition-colors cursor-pointer ${isJournalActive ? 'text-[#f2512d] font-bold' : 'hover:text-[#f2512d]'
                 }`}
             >
@@ -154,7 +154,7 @@ export const Footer: React.FC<FooterProps> = ({ activeRoute, onNavigate }) => {
 
           {/* Left: Copyright */}
           <p className="text-neutral-400">
-            © {new Date().getFullYear()} Anish Debnath. All Rights Reserved.
+            Â© {new Date().getFullYear()} Anish Debnath. All Rights Reserved.
           </p>
 
           {/* Right: Policy, Terms of Service & 404 */}

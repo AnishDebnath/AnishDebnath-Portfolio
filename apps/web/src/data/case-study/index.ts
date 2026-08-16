@@ -1,4 +1,4 @@
-import { CaseStudy, JournalArticle } from '../../types';
+﻿import { CaseStudy, CaseStudyArticle } from '../../types';
 import { auroraLegal } from './auroraLegal';
 import { electricMobility } from './electricMobility';
 import { virtualGym } from './virtualGym';
@@ -15,7 +15,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   tropicalEscape
 ];
 
-export const JOURNAL_ARTICLES: JournalArticle[] = [
+export const CASE_STUDY_ARTICLES: CaseStudyArticle[] = [
   beyondAesthetics,
   conceptToPixel,
   designingForConversion,

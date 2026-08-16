@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { PageRoute } from '../../types';
-import { JOURNAL_ARTICLES } from '../../data/case-study';
+import { CASE_STUDY_ARTICLES } from '../../data/case-study';
 import { FaqSection } from '../../components/common/faq';
 import { CtaBanner } from '../../components/common/cta';
 import { TitleBand } from './TitleBand';
@@ -15,10 +15,10 @@ interface JournalDetailPageProps {
 }
 
 export const JournalDetailPage: React.FC<JournalDetailPageProps> = ({ articleId, onNavigate }) => {
-    const article = JOURNAL_ARTICLES.find(a => a.id === articleId) || JOURNAL_ARTICLES.find(a => a.id === 'designing-for-conversion') || JOURNAL_ARTICLES[0];
+    const article = CASE_STUDY_ARTICLES.find(a => a.id === articleId) || CASE_STUDY_ARTICLES.find(a => a.id === 'designing-for-conversion') || CASE_STUDY_ARTICLES[0];
 
     // More journal articles (the other 2 items from the array)
-    const relatedArticles = JOURNAL_ARTICLES.filter(a => a.id !== article.id).slice(0, 2);
+    const relatedArticles = CASE_STUDY_ARTICLES.filter(a => a.id !== article.id).slice(0, 2);
 
     return (
         <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] py-12 sm:py-20 select-none">

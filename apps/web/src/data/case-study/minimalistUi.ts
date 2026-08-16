@@ -1,6 +1,6 @@
-import { JournalArticle } from '../../types';
+﻿import { CaseStudyArticle } from '../../types';
 
-export const minimalistUi: JournalArticle = {
+export const minimalistUi: CaseStudyArticle = {
   id: 'minimalist-ui',
   title: 'The Art of Minimalist UI: How Less Can Truly Be More',
   excerpt: 'Exploring content-first layouts, white space mathematics, and purposeful reduction in modern interfaces.',

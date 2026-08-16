@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
@@ -42,7 +42,7 @@ export const NowWorkingOnSection: React.FC<NowWorkingOnSectionProps> = ({ darkTh
         {/* SECTION HEADER MATCHING OTHER SECTIONS */}
         <SectionHeader
           title="NOW WORKING ON"
-          subtitle="Projects Iâ€™m actively building and fine-tuning at the moment."
+          subtitle="Projects I’m actively building and fine-tuning at the moment."
           dark={darkTheme}
           icon={<Sparkles className="w-5 h-5 stroke-[2.2]" />}
         />

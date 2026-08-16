@@ -1,12 +1,12 @@
 ﻿import React from 'react';
 import { motion } from 'motion/react';
-import { JournalArticle, PageRoute } from '../../types';
+import { CaseStudyArticle, PageRoute } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { JournalCard } from '../../components/product/JournalCard';
+import { CaseStudyCard } from '../../components/product/CaseStudyCard';
 import { BookOpen } from 'lucide-react';
 
 interface MoreArticlesSectionProps {
-    relatedArticles: JournalArticle[];
+    relatedArticles: CaseStudyArticle[];
     onNavigate: (route: PageRoute, detailId?: string) => void;
 }
 
@@ -44,7 +44,7 @@ export const MoreArticlesSection: React.FC<MoreArticlesSectionProps> = ({ relate
                                 visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
                             }}
                         >
-                            <JournalCard
+                            <CaseStudyCard
                                 article={rel}
                                 darkTheme={true}
                                 onNavigate={(route, id) => {

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { LayoutDashboard, Layers, Users } from 'lucide-react';
@@ -76,7 +76,7 @@ export const Experience: React.FC = () => {
                             {/* Left: Role & Company */}
                             <div className="md:col-span-5">
                                 <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
-                                    {exp.role} â€” {exp.company}
+                                    {exp.role} — {exp.company}
                                 </h3>
                                 <span className="font-sans font-medium text-sm text-[#e74723] block mt-1">
                                     {exp.period}
@@ -89,7 +89,7 @@ export const Experience: React.FC = () => {
                                 <ul className="space-y-3 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed">
                                     {exp.bullets.map((bullet, idx) => (
                                         <li key={idx} className="flex items-start gap-2.5">
-                                            <span className="text-neutral-500 shrink-0">â€¢</span>
+                                            <span className="text-neutral-500 shrink-0">•</span>
                                             <span>{bullet}</span>
                                         </li>
                                     ))}
@@ -114,7 +114,7 @@ export const Experience: React.FC = () => {
                     {/* Left Quote */}
                     <div className="md:col-span-6 space-y-3">
                         <span className="font-serif text-5xl sm:text-6xl text-neutral-600 block leading-none font-bold">
-                            â€œ
+                            “
                         </span>
                         <p className="font-sans font-medium text-xl sm:text-2xl text-[#e74723] leading-snug">
                             Design is the silent ambassador of every idea we bring to life.

@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
-import { JournalArticle } from '../../types';
+import { CaseStudyArticle } from '../../types';
 
 interface HeroImageProps {
-    article: JournalArticle;
+    article: CaseStudyArticle;
 }
 
 export const HeroImage: React.FC<HeroImageProps> = ({ article }) => {

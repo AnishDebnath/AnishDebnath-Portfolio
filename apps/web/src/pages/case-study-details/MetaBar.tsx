@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
-import { JournalArticle } from '../../types';
+import { CaseStudyArticle } from '../../types';
 import { Tag } from 'lucide-react';
 
 interface MetaBarProps {
-    article: JournalArticle;
+    article: CaseStudyArticle;
 }
 
 export const MetaBar: React.FC<MetaBarProps> = ({ article }) => {

@@ -12,8 +12,8 @@ export const navItems: { label: string; route: PageRoute }[] = [
   { label: 'Home', route: 'home' },
   { label: 'About', route: 'about' },
   { label: 'Resume', route: 'resume' },
-  { label: 'Portfolio', route: 'case-study' },
-  { label: 'Case Study', route: 'journal' },
+  { label: 'Portfolio', route: 'portfolio' },
+  { label: 'Case Study', route: 'case-study' },
 ];
 
 export const NavLinks: React.FC<{ activeRoute: PageRoute; onNavigate: (route: PageRoute) => void }> = ({
@@ -23,8 +23,8 @@ export const NavLinks: React.FC<{ activeRoute: PageRoute; onNavigate: (route: Pa
   <nav className="flex items-center gap-2 sm:gap-3">
     {navItems.map((item, index) => {
       const isActive = activeRoute === item.route ||
-        (item.route === 'case-study' && activeRoute === 'case-study-detail') ||
-        (item.route === 'journal' && activeRoute === 'journal-detail');
+        (item.route === 'portfolio' && activeRoute === 'portfolio-detail') ||
+        (item.route === 'case-study' && activeRoute === 'case-study-detail');
       return (
         <React.Fragment key={item.route}>
           {index > 0 && <span className="text-neutral-900 text-xs font-black select-none px-0.5">•</span>}

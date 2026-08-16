@@ -1,6 +1,6 @@
-import { JournalArticle } from '../../types';
+﻿import { CaseStudyArticle } from '../../types';
 
-export const beyondAesthetics: JournalArticle = {
+export const beyondAesthetics: CaseStudyArticle = {
   id: 'beyond-aesthetics',
   title: 'Designing Beyond Aesthetics: How Strategy Shapes Great User Experiences',
   excerpt: 'How strategy, research, and functional clarity shape meaningful software interfaces.',

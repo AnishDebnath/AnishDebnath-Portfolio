@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+﻿import React, { useState, useEffect, useCallback } from 'react';
 import { MotionConfig } from 'motion/react';
 import { PageRoute } from './types';
 import { Header } from './components/common/Header';
@@ -8,10 +8,10 @@ import { ComingSoonPage } from './pages/coming-soon';
 import { HomePage } from './pages/home';
 import { AboutPage } from './pages/about';
 import { ResumePage } from './pages/resume';
-import { CaseStudyListPage } from './pages/case-study-list';
-import { CaseStudyDetailPage } from './pages/case-study-detail';
-import { JournalListPage } from './pages/journal-list';
-import { JournalDetailPage } from './pages/journal-detail';
+import { CaseStudyListPage } from './pages/portfolio';
+import { CaseStudyDetailPage } from './pages/portfolio-details';
+import { JournalListPage } from './pages/case-study';
+import { JournalDetailPage } from './pages/case-study-details';
 import { ContactPage } from './pages/contact';
 import { PrivacyPolicyPage } from './pages/privacy-policy';
 import { TermsOfServicePage } from './pages/terms-of-service';
@@ -36,10 +36,10 @@ const parsePath = (pathname: string): RouteState => {
       return { route: 'about' };
     case 'resume':
       return { route: 'resume' };
+    case 'portfolio':
+      return segments[1] ? { route: 'portfolio-detail', detailId: segments[1] } : { route: 'portfolio' };
     case 'case-study':
       return segments[1] ? { route: 'case-study-detail', detailId: segments[1] } : { route: 'case-study' };
-    case 'journal':
-      return segments[1] ? { route: 'journal-detail', detailId: segments[1] } : { route: 'journal' };
     case 'contact':
       return { route: 'contact' };
     case 'privacy-policy':
@@ -61,14 +61,14 @@ const buildPath = (route: PageRoute, detailId?: string): string => {
       return '/about';
     case 'resume':
       return '/resume';
+    case 'portfolio':
+      return '/portfolio';
+    case 'portfolio-detail':
+      return detailId ? `/portfolio/${detailId}` : '/portfolio';
     case 'case-study':
       return '/case-study';
     case 'case-study-detail':
       return detailId ? `/case-study/${detailId}` : '/case-study';
-    case 'journal':
-      return '/journal';
-    case 'journal-detail':
-      return detailId ? `/journal/${detailId}` : '/journal';
     case 'contact':
       return '/contact';
     case 'privacy-policy':
@@ -159,13 +159,13 @@ export default function App() {
         return <AboutPage onNavigate={handleNavigate} />;
       case 'resume':
         return <ResumePage onNavigate={handleNavigate} />;
-      case 'case-study':
+      case 'portfolio':
         return <CaseStudyListPage onNavigate={handleNavigate} />;
-      case 'case-study-detail':
+      case 'portfolio-detail':
         return <CaseStudyDetailPage projectId={detailId} onNavigate={handleNavigate} />;
-      case 'journal':
+      case 'case-study':
         return <JournalListPage onNavigate={handleNavigate} />;
-      case 'journal-detail':
+      case 'case-study-detail':
         return <JournalDetailPage articleId={detailId} onNavigate={handleNavigate} />;
       case 'contact':
         return <ContactPage onNavigate={handleNavigate} />;

@@ -1,6 +1,6 @@
-import { JournalArticle } from '../../types';
+﻿import { CaseStudyArticle } from '../../types';
 
-export const conceptToPixel: JournalArticle = {
+export const conceptToPixel: CaseStudyArticle = {
   id: 'concept-to-pixel',
   title: 'From Concept to Pixel: The Creative Journey Behind My Recent SaaS Redesign',
   excerpt: 'A step-by-step breakdown of transforming a complex legacy web app into a streamlined SaaS platform.',
