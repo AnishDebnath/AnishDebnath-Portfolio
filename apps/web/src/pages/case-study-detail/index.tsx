@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { PageRoute } from '../../types';
-import { CASE_STUDIES } from '../../data/portfolioData';
-import { DEFAULT_SOLUTION_BULLETS } from '../../data/caseStudyDetailData';
+import { CASE_STUDIES } from '../../data/portfolio';
 import { FaqSection } from '../../components/FaqSection';
 import { CtaBanner } from '../../components/CtaBanner';
 import { HeaderSection } from './Header';
@@ -11,6 +10,13 @@ import { SolutionsSection } from './Solutions';
 import { ResultsSection } from './Results';
 import { GallerySection } from './Gallery';
 import { MoreProjectsSection } from './MoreProjects';
+
+const DEFAULT_SOLUTION_BULLETS = [
+  'Conducted user research and competitor analysis to map pain points',
+  'Built a scalable design system with reusable components and tokens',
+  'Delivered high-fidelity prototypes and usability-tested every flow',
+  'Partnered with engineers through implementation to pixel-perfect launch'
+];
 
 interface CaseStudyDetailPageProps {
     projectId: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
-import { CASE_STUDIES } from '../../data/portfolioData';
+import { CASE_STUDIES } from '../../data/portfolio';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { CaseStudyCard } from '../../components/CaseStudyCard';
 
@@ -21,7 +21,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onNavigate }
             <div className="max-w-[1085px] mx-auto px-4 sm:px-6 relative z-10">
                 <SectionHeader
                     title="PORTFOLIO"
-                    subtitle="Selected projects, design systems, and digital products."
+                    subtitle="A curated collection of brand, web, and product design crafted for modern teams."
                     dark={true}
                     icon={
                         <svg className="w-6 h-6 stroke-[2.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -33,7 +33,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onNavigate }
                 />
 
                 <div className="space-y-12 sm:space-y-20 mt-8 sm:mt-12 relative pb-16 sm:pb-24">
-                    {CASE_STUDIES.map((project, index) => (
+                    {CASE_STUDIES.filter(project => project.showOnHome !== false).map((project, index) => (
                         <motion.div
                             key={project.id}
                             initial={{ opacity: 0, y: 60 }}

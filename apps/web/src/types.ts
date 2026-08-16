@@ -22,6 +22,7 @@ export interface CaseStudy {
   date?: string;
   iconBg?: string;
   featured: boolean;
+  showOnHome?: boolean;
   coverImage: string;
   heroImage: string;
   middleImage?: string;
@@ -38,6 +39,19 @@ export interface CaseStudy {
   liveUrl?: string;
   nextProjectId?: string;
 }
+
+export type PortfolioProject = Pick<CaseStudy,
+  | 'id' | 'title' | 'client' | 'subtitle' | 'category' | 'year' | 'date' | 'iconBg' | 'featured' | 'tags' | 'coverImage'
+> & {
+  showOnHome?: boolean;
+};
+
+export type CaseStudyDetail = Pick<CaseStudy,
+  | 'id' | 'title' | 'category' | 'year' | 'date' | 'tags'
+  | 'heroImage' | 'middleImage' | 'galleryImages' | 'summary' | 'challenge' | 'solution'
+  | 'overlayDescription' | 'solutionBullets' | 'resultsSubtitle' | 'impactMetrics'
+  | 'services' | 'liveUrl' | 'nextProjectId'
+>;
 
 export interface JournalArticle {
   id: string;

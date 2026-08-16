@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
-import { JOURNAL_ARTICLES } from '../../data/portfolioData';
+import { JOURNAL_ARTICLES } from '../../data/case-study';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { JournalCard } from '../../components/JournalCard';
 

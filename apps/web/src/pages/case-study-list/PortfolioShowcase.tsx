@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
-import { CASE_STUDIES } from '../../data/portfolioData';
+import { CASE_STUDIES } from '../../data/portfolio';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { CaseStudyCard } from '../../components/CaseStudyCard';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageRoute } from '../../types';
-import { JOURNAL_ARTICLES } from '../../data/portfolioData';
+import { JOURNAL_ARTICLES } from '../../data/case-study';
 import { FaqSection } from '../../components/FaqSection';
 import { CtaBanner } from '../../components/CtaBanner';
 import { TitleBand } from './TitleBand';
