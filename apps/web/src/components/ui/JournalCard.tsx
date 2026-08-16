@@ -1,5 +1,5 @@
-import React from 'react';
-import { JournalArticle } from '../types';
+﻿import React from 'react';
+import { JournalArticle } from '../../types';
 
 interface JournalCardProps {
   article: JournalArticle;

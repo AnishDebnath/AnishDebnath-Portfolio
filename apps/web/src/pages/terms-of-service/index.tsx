@@ -1,8 +1,8 @@
-import React from 'react';
+﻿import React from 'react';
 import { PageRoute } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { FaqSection } from '../../components/FaqSection';
-import { CtaBanner } from '../../components/CtaBanner';
+import { FaqSection } from '../../components/ui/FaqSection';
+import { CtaBanner } from '../../components/ui/CtaBanner';
 import { FileText } from 'lucide-react';
 import { TermsContent } from './TermsContent';
 

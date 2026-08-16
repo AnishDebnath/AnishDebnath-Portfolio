@@ -1,7 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { TECH_LIST } from '../../data/technologiesData';
+import { TECH_LIST } from '../../data/technologies';
 
 export const TechnologiesSection: React.FC = () => {
   return (

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { SectionHeader } from './common/SectionHeader';
+import { SectionHeader } from '../common/SectionHeader';
 import { MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
-import { DEFAULT_FAQ_DATA } from '../data/faqData';
+import { DEFAULT_FAQ_DATA } from '../../data/faq';
 
 interface FaqSectionProps {
   className?: string;

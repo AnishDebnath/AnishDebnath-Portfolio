@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { PageRoute } from '../../types';
 import { TechnologiesSection } from './Technologies';
 import { WorkProcessSection } from '../../components/ui/WorkProcess';
 import { StudySection } from './Study';
-import { FaqSection } from '../../components/FaqSection';
-import { CtaBanner } from '../../components/CtaBanner';
+import { FaqSection } from '../../components/ui/FaqSection';
+import { CtaBanner } from '../../components/ui/CtaBanner';
 import { Intro } from './Intro';
 import { Experience } from './Experience';
 

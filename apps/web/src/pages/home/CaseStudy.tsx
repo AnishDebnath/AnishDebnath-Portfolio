@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { JOURNAL_ARTICLES } from '../../data/case-study';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { JournalCard } from '../../components/JournalCard';
+import { JournalCard } from '../../components/ui/JournalCard';
 
 interface CaseStudySectionProps {
     onNavigate: (route: PageRoute, detailId?: string) => void;

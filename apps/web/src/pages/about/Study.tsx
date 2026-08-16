@@ -1,7 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { STUDY_DATA, StudyItemData } from '../../data/studyData';
+import { STUDY_DATA, StudyItemData } from '../../data/study';
 
 export const StudySection: React.FC = () => {
   return (
@@ -53,7 +53,7 @@ export const StudySection: React.FC = () => {
               {/* Left: Degree & Institution */}
               <div className="md:col-span-5">
                 <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
-                  {study.degree} — {study.institution}
+                  {study.degree} â€” {study.institution}
                 </h3>
                 <span className="font-sans font-medium text-sm text-[#e74723] block mt-1">
                   {study.period}
@@ -65,7 +65,7 @@ export const StudySection: React.FC = () => {
                 <ul className="space-y-3 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed">
                   {study.bullets.map((bullet, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <span className="text-neutral-500 shrink-0">•</span>
+                      <span className="text-neutral-500 shrink-0">â€¢</span>
                       <span>{bullet}</span>
                     </li>
                   ))}

@@ -1,6 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
-import { PageRoute } from '../types';
+import { PageRoute } from '../../types';
 import { MessageSquare, Clock, Calendar, Star, Zap, CheckCircle2 } from 'lucide-react';
 
 interface CtaBannerProps {

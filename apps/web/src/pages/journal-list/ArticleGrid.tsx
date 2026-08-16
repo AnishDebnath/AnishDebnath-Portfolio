@@ -1,8 +1,8 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { JOURNAL_ARTICLES } from '../../data/case-study';
-import { JournalCard } from '../../components/JournalCard';
+import { JournalCard } from '../../components/ui/JournalCard';
 
 interface ArticleGridProps {
     onNavigate: (route: PageRoute, detailId?: string) => void;

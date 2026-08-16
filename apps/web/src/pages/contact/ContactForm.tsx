@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, Mail } from 'lucide-react';
-import { DarkButton } from '../../components/DarkButton';
+import { DarkButton } from '../../components/ui/DarkButton';
 
 export const ContactForm: React.FC = () => {
     const [formData, setFormData] = useState({

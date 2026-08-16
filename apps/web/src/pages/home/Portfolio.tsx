@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { CASE_STUDIES } from '../../data/portfolio';
 import { SectionHeader } from '../../components/common/SectionHeader';
-import { CaseStudyCard } from '../../components/CaseStudyCard';
+import { CaseStudyCard } from '../../components/ui/CaseStudyCard';
 
 interface PortfolioSectionProps {
     onNavigate: (route: PageRoute, detailId?: string) => void;

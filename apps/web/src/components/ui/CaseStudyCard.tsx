@@ -1,5 +1,5 @@
-import React from 'react';
-import { CaseStudy } from '../types';
+﻿import React from 'react';
+import { CaseStudy } from '../../types';
 import { DarkButton } from './DarkButton';
 
 const DEFAULT_BG_COLORS = [

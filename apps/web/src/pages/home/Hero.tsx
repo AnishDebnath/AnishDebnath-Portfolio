@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import heroPortrait from '../../assets/images/hero-portrait.png';
 import profilePicture from '../../assets/images/profile-picture.png';
-import { DarkButton } from '../../components/DarkButton';
+import { DarkButton } from '../../components/ui/DarkButton';
 
 interface HeroSectionProps {
   onNavigate: (route: string, id?: string) => void;

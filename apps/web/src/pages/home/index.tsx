@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { PageRoute } from '../../types';
 import { CapabilitiesSection } from './Capabilities';
 import { WorkProcessSection } from '../../components/ui/WorkProcess';
 import { BrandMarquee } from './BrandMarquee';
 import { NowWorkingOnSection } from './NowWorkingOn';
 import { TestimonialsSection } from './Testimonials';
-import { FaqSection } from '../../components/FaqSection';
-import { CtaBanner } from '../../components/CtaBanner';
+import { FaqSection } from '../../components/ui/FaqSection';
+import { CtaBanner } from '../../components/ui/CtaBanner';
 import { HeroSection } from './Hero';
 import { Stats } from './Stats';
 import { PortfolioSection } from './Portfolio';
