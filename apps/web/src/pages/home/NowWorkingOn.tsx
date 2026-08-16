@@ -78,20 +78,20 @@ export const NowWorkingOnSection: React.FC<NowWorkingOnSectionProps> = ({ darkTh
 
                 </div>
 
-                {/* 2. OVERLAY FADE ONLY THAT APPEARS WHEN SCROLLED INTO VIEW (NO BLUR) */}
+                {/* 2. OVERLAY FADE + BLUR THAT APPEARS WHEN SCROLLED INTO VIEW */}
                 <motion.div
                   initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.6, ease: 'easeInOut' }}
-                  className="absolute inset-0 bg-black z-10 pointer-events-none"
+                  className="absolute inset-0 bg-black/5 backdrop-blur-[4px] z-10 pointer-events-none"
                 />
 
                 {/* 3. CENTER CARD WITH 3:4 ASPECT RATIO (STATUS, YEAR RIGHT CORNER, TITLE, DESCRIPTION, BUTTON) */}
                 <motion.div
                   initial={{ opacity: 0, y: 70, scale: 0.94 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   className="relative z-20 w-[290px] sm:w-[330px] md:w-[360px] aspect-[3/4] bg-white text-[#0d130d] rounded-[28px] sm:rounded-[34px] p-6 sm:p-8 border border-neutral-200/90 shadow-2xl flex flex-col justify-between"
                 >

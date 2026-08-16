@@ -21,7 +21,7 @@ const CountUp: React.FC<CountUpProps> = ({ value, suffix = '', pad = false, clas
 
     useEffect(() => {
         if (inView) {
-            const controls = animate(count, value, { duration: 3, ease: 'easeOut' });
+            const controls = animate(count, value, { duration: 3, ease: 'easeInOut' });
             return controls.stop;
         }
     }, [inView, value, count]);
