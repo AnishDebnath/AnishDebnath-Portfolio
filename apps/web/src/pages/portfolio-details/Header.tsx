@@ -1,11 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { CaseStudy } from '../../types';
 import { SectionHeader } from '../../components/common/SectionHeader';
+import logix from '../../assets/brand-logo/logix.png';
 
 interface HeaderSectionProps {
     project: CaseStudy;
 }
+
+interface TagTypewriterProps {
+    tags: string[];
+}
+
+const TagTypewriter: React.FC<TagTypewriterProps> = ({ tags }) => {
+    const [started, setStarted] = useState(false);
+    const [doneCount, setDoneCount] = useState(0);
+    const [typed, setTyped] = useState('');
+
+    useEffect(() => {
+        if (!started || doneCount >= tags.length) return;
+        const target = tags[doneCount];
+        let i = 0;
+        const interval = setInterval(() => {
+            i += 1;
+            setTyped(target.slice(0, i));
+            if (i >= target.length) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    setDoneCount((c) => c + 1);
+                    setTyped('');
+                }, 350);
+            }
+        }, 45);
+        return () => clearInterval(interval);
+    }, [started, doneCount, tags]);
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.25, ease: 'easeOut' }}
+            onViewportEnter={() => setStarted(true)}
+            className="flex flex-wrap md:flex-col items-start md:items-end gap-2 md:gap-1.5 text-xs sm:text-sm font-mono-tag text-[#f2512d] tracking-wider shrink-0"
+        >
+            {tags.slice(0, doneCount).map((tag, idx) => (
+                <span key={idx}>{tag}</span>
+            ))}
+            {doneCount < tags.length && (
+                <span className="flex items-center">
+                    <span>{typed}</span>
+                    <span className="w-[2px] h-[1em] bg-current ml-0.5 animate-pulse" />
+                </span>
+            )}
+        </motion.div>
+    );
+};
 
 export const HeaderSection: React.FC<HeaderSectionProps> = ({ project }) => {
     return (
@@ -33,24 +83,32 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({ project }) => {
 
                     {/* Left: Logo & Description */}
                     <div className="flex flex-col items-start gap-3 sm:gap-4 max-w-2xl">
-                        <div className="flex items-center gap-3 shrink-0 text-[#0d130d]">
-                            <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#0d130d] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <circle cx="12" cy="12" r="3" fill="currentColor" />
-                                <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                            </svg>
-                            <span className="font-display font-bold text-2xl sm:text-3xl tracking-tight text-[#0d130d]">Logoipsum</span>
-                        </div>
-                        <p className="text-base sm:text-lg text-neutral-800 font-sans leading-relaxed">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                            className="flex items-center gap-3 shrink-0 text-[#0d130d]"
+                        >
+<img
+                                src={logix}
+                                alt="Brand logo"
+                                className="h-12 sm:h-16 w-auto object-contain shrink-0"
+                            />
+                        </motion.div>
+                        <motion.p
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.6, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-base sm:text-lg text-neutral-800 font-sans leading-relaxed"
+                        >
                             {project.overlayDescription || project.summary}
-                        </p>
+                        </motion.p>
                     </div>
 
                     {/* Right: Tags */}
-                    <div className="flex flex-wrap md:flex-col items-start md:items-end gap-2 md:gap-1.5 text-xs sm:text-sm font-mono-tag text-[#f2512d] tracking-wider shrink-0">
-                        {(project.tags || ['// Brand Identity', '// Art Direction', '// Digital Experience']).map((tag, idx) => (
-                            <span key={idx}>{tag}</span>
-                        ))}
-                    </div>
+                    <TagTypewriter tags={project.tags || ['// Brand Identity', '// Art Direction', '// Digital Experience']} />
 
                 </div>
             </motion.div>

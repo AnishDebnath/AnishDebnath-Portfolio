@@ -13,8 +13,8 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ solutionBull
 
                     {/* Left Title with Red Badge */}
                     <div className="md:col-span-4 flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-2xl bg-[#f2512d] flex items-center justify-center text-white shrink-0 shadow-sm">
-                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                        <div className="w-10 h-10 rounded-2xl bg-[#f2512d] flex items-center justify-center text-white shrink-0 shadow-sm -rotate-6">
+                            <svg className="w-5 h-5 rotate-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
                                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>

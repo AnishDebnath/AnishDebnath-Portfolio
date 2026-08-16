@@ -1,4 +1,5 @@
 ﻿import React, { useEffect } from 'react';
+import { motion } from 'motion/react';
 import { PageRoute } from '../../types';
 import { CASE_STUDIES } from '../../data/portfolio';
 import { FaqSection } from '../../components/common/faq';
@@ -39,7 +40,12 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
         : DEFAULT_SOLUTION_BULLETS;
 
     return (
-        <main className="min-h-screen bg-[#f5f5f5] text-[#0d130d] font-sans selection:bg-[#f2512d] selection:text-white pt-6 sm:pt-10 pb-20 select-none">
+        <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="min-h-screen bg-[#f5f5f5] text-[#0d130d] font-sans selection:bg-[#f2512d] selection:text-white pt-6 sm:pt-10 pb-20 select-none"
+        >
 
             {/* 1. Header Section */}
             <HeaderSection project={project} />
@@ -66,6 +72,6 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
             <FaqSection className="pt-16 sm:pt-24" />
             <CtaBanner onNavigate={onNavigate} />
 
-        </main>
+        </motion.main>
     );
 };
