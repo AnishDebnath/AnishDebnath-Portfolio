@@ -57,10 +57,18 @@ export const StudySection: React.FC = () => {
                 }}
                 className="md:col-span-5"
               >
-                <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
-                  {study.degree} — {study.institution}
-                </h3>
-                <span className="font-sans font-medium text-sm text-[#e74723] block mt-1">
+                <div className="flex items-center gap-3 mb-3">
+                  {/* Demo logo placeholder — replace with real institution logo */}
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#f2512d] to-[#801e0a] flex items-center justify-center shrink-0 shadow-sm">
+                    <span className="font-display font-black text-lg text-white">
+                      {study.institution.charAt(0)}
+                    </span>
+                  </div>
+                  <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
+                    {study.degree} — {study.institution}
+                  </h3>
+                </div>
+                <span className="font-sans font-medium text-sm text-[#e74723] block mt-1 ml-14">
                   {study.period}
                 </span>
               </motion.div>
@@ -107,11 +115,6 @@ export const StudySection: React.FC = () => {
                         alt={img.title}
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                       />
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-2">
-                        <span className="font-sans font-medium text-[11px] text-neutral-200 line-clamp-1 block text-center">
-                          {img.title}
-                        </span>
-                      </div>
                     </div>
                   ))}
                 </div>

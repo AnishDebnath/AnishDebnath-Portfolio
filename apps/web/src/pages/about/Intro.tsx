@@ -1,6 +1,38 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useInView, useMotionValue, useTransform, animate } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
+import heroBanner from '../../assets/images/hero.png';
+
+interface CountUpProps {
+    value: number;
+    suffix?: string;
+    pad?: boolean;
+    className: string;
+}
+
+const CountUp: React.FC<CountUpProps> = ({ value, suffix = '', pad = false, className }) => {
+    const ref = useRef<HTMLSpanElement>(null);
+    const inView = useInView(ref, { once: true, amount: 0.6 });
+    const count = useMotionValue(0);
+    const display = useTransform(count, (v) => {
+        const rounded = Math.round(v);
+        const str = pad ? String(rounded).padStart(2, '0') : String(rounded);
+        return `${str}${suffix}`;
+    });
+
+    useEffect(() => {
+        if (inView) {
+            const controls = animate(count, value, { duration: 3, ease: 'easeInOut' });
+            return controls.stop;
+        }
+    }, [inView, value, count]);
+
+    return (
+        <motion.span ref={ref} className={className}>
+            {display}
+        </motion.span>
+    );
+};
 
 export const Intro: React.FC = () => {
     return (
@@ -28,10 +60,7 @@ export const Intro: React.FC = () => {
                     className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden border border-neutral-300 bg-gradient-to-r from-[#f2512d] via-[#e74723] to-[#801e0a] aspect-[16/9] sm:aspect-[2.4/1] shadow-sm"
                 >
                     <img
-                        src="https://framerusercontent.com/images/gIB852FnoSAoaST2b7XHe096Ls.png?scale-down-to=2048"
-                        onError={(e) => {
-                            e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2000&q=80";
-                        }}
+                        src={heroBanner}
                         alt="Anish Portrait"
                         className="w-full h-full object-cover object-center"
                     />
@@ -51,27 +80,34 @@ export const Intro: React.FC = () => {
                         className="md:col-span-4 space-y-8"
                     >
                         <div>
-                            <span className="font-display font-black text-5xl sm:text-6xl text-[#0d130d] block leading-none">
-                                80+
-                            </span>
+                            <CountUp
+                                value={20}
+                                suffix="+"
+                                className="font-display font-black text-5xl sm:text-6xl text-[#0d130d] block leading-none"
+                            />
                             <span className="font-sans font-medium text-base sm:text-lg text-[#e74723] block mt-1.5">
                                 Successful Projects
                             </span>
                         </div>
 
                         <div>
-                            <span className="font-display font-black text-5xl sm:text-6xl text-[#0d130d] block leading-none">
-                                95%
-                            </span>
+                            <CountUp
+                                value={95}
+                                suffix="%"
+                                className="font-display font-black text-5xl sm:text-6xl text-[#0d130d] block leading-none"
+                            />
                             <span className="font-sans font-medium text-base sm:text-lg text-[#e74723] block mt-1.5">
                                 Client Satisfaction Rate
                             </span>
                         </div>
 
                         <div>
-                            <span className="font-display font-black text-5xl sm:text-6xl text-[#0d130d] block leading-none">
-                                06+
-                            </span>
+                            <CountUp
+                                value={4}
+                                suffix="+"
+                                pad
+                                className="font-display font-black text-5xl sm:text-6xl text-[#0d130d] block leading-none"
+                            />
                             <span className="font-sans font-medium text-base sm:text-lg text-[#e74723] block mt-1.5">
                                 Years of Experience
                             </span>
