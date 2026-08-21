@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { SectionHeader } from '../../components/common/SectionHeader';
 import { LayoutDashboard, Layers, Users } from 'lucide-react';
-import { EXPERIENCE_DATA, ExperienceItemData, ExperienceImage } from '../../data/experience';
+import { EXPERIENCE_DATA, ExperienceImage } from '../../data/experience';
 
 const ExperienceImageGrid: React.FC<{ images: ExperienceImage[] }> = ({ images }) => {
     if (!images || images.length === 0) return null;
@@ -56,7 +56,7 @@ export const Experience: React.FC = () => {
                         hidden: {},
                         visible: { transition: { staggerChildren: 0.15 } },
                     }}
-                    className="space-y-12 sm:space-y-16 pb-20 border-b border-neutral-800"
+                    className="relative space-y-12 sm:space-y-16 pb-20 border-b border-neutral-800"
                 >
                     {EXPERIENCE_DATA.map((exp, index) => (
                         <motion.div
@@ -65,50 +65,54 @@ export const Experience: React.FC = () => {
                                 hidden: {},
                                 visible: { transition: { staggerChildren: 0.12 } },
                             }}
-                            className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${index < EXPERIENCE_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
+                            className={`grid grid-cols-1 gap-5 sm:gap-6 items-start ${index < EXPERIENCE_DATA.length - 1 ? 'pb-12 border-b border-neutral-800/80' : ''
                                 }`}
                         >
-                            {/* Left: Role & Company */}
                             <motion.div
                                 variants={{
                                     hidden: { opacity: 0, x: -24 },
                                     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
                                 }}
-                                className="md:col-span-5"
+                                className="col-span-1"
                             >
-                                <div className="flex items-center gap-3 mb-3">
-                                    {/* Demo logo placeholder — replace with real company logo */}
-                                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#f2512d] to-[#801e0a] flex items-center justify-center shrink-0 shadow-sm">
-                                        <span className="font-display font-black text-lg text-white">
+                                <div className="flex items-start gap-3">
+                                    <div className="w-10 h-10 rounded-md bg-gradient-to-br from-[#f2512d] to-[#801e0a] flex items-center justify-center shrink-0 shadow-sm">
+                                        <span className="font-display font-black text-base text-white">
                                             {exp.company.charAt(0)}
                                         </span>
                                     </div>
-                                    <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
-                                        {exp.role} — {exp.company}
-                                    </h3>
+                                    <div>
+                                        <h3 className="font-sans font-bold text-lg sm:text-xl text-white">{exp.role} - {exp.company}</h3>
+                                        <p className="font-sans font-medium text-xs sm:text-sm text-[#e74723] mt-0.5">
+                                            {exp.period}{exp.duration && ` · ${exp.duration}`}
+                                        </p>
+                                        {exp.location && (
+                                            <p className="font-sans text-xs sm:text-sm text-neutral-400 mt-0.5">{exp.location}</p>
+                                        )}
+                                    </div>
                                 </div>
-                                <span className="font-sans font-medium text-sm text-[#e74723] block mt-1 ml-14">
-                                    {exp.period}
-                                </span>
                             </motion.div>
 
-                            {/* Right: Description & Image Slide */}
                             <motion.div
                                 variants={{
                                     hidden: { opacity: 0, x: 24 },
                                     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
                                 }}
-                                className="md:col-span-7"
+                                className="col-span-1 max-w-3xl pl-0 sm:pl-14"
                             >
-                                {/* Description Bullets */}
+                                {exp.bullets[0] && (
+                                    <p className="font-sans text-sm sm:text-base text-neutral-300 leading-relaxed mb-4">
+                                        {exp.bullets[0]}
+                                    </p>
+                                )}
                                 <motion.ul
                                     variants={{
                                         hidden: {},
                                         visible: { transition: { staggerChildren: 0.1 } },
                                     }}
-                                    className="space-y-3 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed"
+                                    className="space-y-1 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed"
                                 >
-                                    {exp.bullets.map((bullet, idx) => (
+                                    {exp.bullets.slice(1).map((bullet, idx) => (
                                         <motion.li
                                             key={idx}
                                             variants={{

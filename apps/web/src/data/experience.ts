@@ -8,6 +8,8 @@ export interface ExperienceItemData {
     role: string;
     company: string;
     period: string;
+    duration?: string;
+    location?: string;
     bullets: string[];
     images: ExperienceImage[];
 }
@@ -18,6 +20,8 @@ export const EXPERIENCE_DATA: ExperienceItemData[] = [
         role: 'Senior UI/UX Designer',
         company: 'PixelForge Studio',
         period: '2022 – Present',
+        duration: '4 yrs 4 mos',
+        location: 'Nagpur, Maharashtra, India · Remote',
         bullets: [
             'Led the design of over 25+ SaaS and e-commerce platforms focused on conversion optimization.',
             'Collaborated with developers and stakeholders to create seamless user journeys and scalable design systems.',
@@ -43,6 +47,8 @@ export const EXPERIENCE_DATA: ExperienceItemData[] = [
         role: 'Product Designer',
         company: 'BrightTech Solutions',
         period: '2019 – 2022',
+        duration: '3 yrs',
+        location: 'Nagpur, Maharashtra, India · Remote',
         bullets: [
             'Designed web and mobile interfaces for B2B SaaS products serving 100k+ users.',
             'Conducted user research, usability testing, and data-driven design iterations.',
@@ -68,6 +74,8 @@ export const EXPERIENCE_DATA: ExperienceItemData[] = [
         role: 'UI Designer',
         company: 'Creative Hive Agency',
         period: '2017 – 2019',
+        duration: '2 yrs',
+        location: 'Nagpur, Maharashtra, India · Remote',
         bullets: [
             'Created landing pages and marketing websites for startups across fintech, real estate, and law industries.',
             'Collaborated closely with marketing teams to align design with brand identity and goals.',

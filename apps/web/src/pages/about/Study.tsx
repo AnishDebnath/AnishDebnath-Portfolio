@@ -46,49 +46,55 @@ export const StudySection: React.FC = () => {
                 hidden: {},
                 visible: { transition: { staggerChildren: 0.12 } },
               }}
-              className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 items-start ${index < STUDY_DATA.length - 1 ? 'pb-12 border-b border-dashed border-neutral-800/80' : ''
+              className={`grid grid-cols-1 gap-5 sm:gap-6 items-start ${index < STUDY_DATA.length - 1 ? 'pb-12 border-b border-neutral-800/80' : ''
                 }`}
             >
-              {/* Left: Degree & Institution */}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, x: -24 },
                   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
                 }}
-                className="md:col-span-5"
+                className="col-span-1"
               >
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-start gap-3">
                   {/* Demo logo placeholder — replace with real institution logo */}
                   <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#f2512d] to-[#801e0a] flex items-center justify-center shrink-0 shadow-sm">
                     <span className="font-display font-black text-lg text-white">
                       {study.institution.charAt(0)}
                     </span>
                   </div>
-                  <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
-                    {study.degree} — {study.institution}
-                  </h3>
+                  <div>
+                    <h3 className="font-sans font-bold text-lg sm:text-xl text-white">
+                      {study.degree}
+                    </h3>
+                    <p className="font-sans text-sm sm:text-base text-neutral-300">{study.institution}</p>
+                    <p className="font-sans font-medium text-xs sm:text-sm text-[#e74723] mt-0.5">
+                      {study.period}
+                    </p>
+                  </div>
                 </div>
-                <span className="font-sans font-medium text-sm text-[#e74723] block mt-1 ml-14">
-                  {study.period}
-                </span>
               </motion.div>
 
-              {/* Right: Description Bullets & Image Cards Grid */}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, x: 24 },
                   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
                 }}
-                className="md:col-span-7"
+                className="col-span-1 max-w-3xl pl-0 sm:pl-14"
               >
+                {study.bullets[0] && (
+                  <p className="font-sans text-sm sm:text-base text-neutral-300 leading-relaxed mb-4">
+                    {study.bullets[0]}
+                  </p>
+                )}
                 <motion.ul
                   variants={{
                     hidden: {},
                     visible: { transition: { staggerChildren: 0.1 } },
                   }}
-                  className="space-y-3 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed"
+                  className="space-y-1 font-sans text-sm sm:text-base text-neutral-300 leading-relaxed"
                 >
-                  {study.bullets.map((bullet, idx) => (
+                  {study.bullets.slice(1).map((bullet, idx) => (
                     <motion.li
                       key={idx}
                       variants={{
